@@ -9,6 +9,9 @@ using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
+using MVC6Awakens.Infrastructure;
+using MVC6Awakens.Infrastructure.AutoMapper;
 using MVC6Awakens.Models;
 using MVC6Awakens.Services;
 
@@ -30,6 +33,7 @@ namespace MVC6Awakens
             }
 
             builder.AddEnvironmentVariables();
+            AutoMapperWebConfiguration.Configure();
             Configuration = builder.Build();
         }
 
