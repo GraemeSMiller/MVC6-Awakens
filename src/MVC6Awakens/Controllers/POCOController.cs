@@ -1,8 +1,9 @@
 ﻿
+using System.Collections.Generic;
+
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc;
-
-using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ViewFeatures;
 
 
@@ -10,10 +11,16 @@ namespace MVC6Awakens.Controllers
 {
     public class POCOController
     {
+        private readonly IModelMetadataProvider provider;
+
         [ActionContext]
         public ActionContext ActionContext { get; set; }
 
 
+        public POCOController(IModelMetadataProvider provider)
+        {
+            this.provider = provider;
+        }
 
 
         // GET: /<controller>/
@@ -23,7 +30,9 @@ namespace MVC6Awakens.Controllers
         }
         public IActionResult Index()
         {
-            return new ViewResult() { };
+            var viewData = new ViewDataDictionary<string>(provider, ActionContext.ModelState);
+            viewData.Model = "Hello from POCO controller!";
+            return new ViewResult() { ViewData = viewData };
         }
     }
 }
