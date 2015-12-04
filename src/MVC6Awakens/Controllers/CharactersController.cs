@@ -1,9 +1,14 @@
 using System;
 using System.Linq;
+
+using AutoMapper;
+
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using MVC6Awakens.Models;
+using MVC6Awakens.ViewModels.Characters;
+
 
 namespace MVC6Awakens.Controllers
 {
@@ -46,25 +51,25 @@ namespace MVC6Awakens.Controllers
             var planets = context.Planets;
             var selectList = new SelectList(planets, "Id", "Name");
             ViewData["PlanetId"] = selectList;
-            return View();
+            return View(new CharacterCreate());
         }
 
         // POST: Characters/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Character character)
+        public IActionResult Create(CharacterCreate characterCreate)
         {
             if (ModelState.IsValid)
             {
-                character.Id = Guid.NewGuid();
+                var character = Mapper.Map<Character>(characterCreate);
                 context.Characters.Add(character);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
             var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name", character.PlanetId);
+            var selectList = new SelectList(planets, "Id", "Name", characterCreate.PlanetId);
             ViewData["PlanetId"] = selectList;
-            return View(character);
+            return View(characterCreate);
         }
 
         // GET: Characters/Edit/5

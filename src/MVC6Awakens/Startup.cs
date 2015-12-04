@@ -26,6 +26,7 @@ namespace MVC6Awakens
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
+            //Check the environment to see if we are developing
             if (env.IsDevelopment())
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
@@ -45,10 +46,8 @@ namespace MVC6Awakens
             // Add framework services.
             services.AddEntityFramework()
                 .AddSqlServer()
-                                    .AddDbContext<DomainContext>(
-                        options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]))
-                .AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+                .AddDbContext<DomainContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]))
+                .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -65,16 +64,20 @@ namespace MVC6Awakens
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            loggerFactory.AddDebug(LogLevel.Information);
 
             if (env.IsDevelopment())
             {
+                //Helps with auto page reloading and intergration with VS
                 app.UseBrowserLink();
+                //Get useful information for exceptions
                 app.UseDeveloperExceptionPage();
+                //Displays database related error details
                 app.UseDatabaseErrorPage();
             }
             else
             {
+                //Where to go when we get an Exception
                 app.UseExceptionHandler("/Home/Error");
 
                 // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
@@ -83,21 +86,21 @@ namespace MVC6Awakens
                     using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
                         .CreateScope())
                     {
-                        serviceScope.ServiceProvider.GetService<ApplicationDbContext>()
-                             .Database.Migrate();
+                        serviceScope.ServiceProvider.GetService<ApplicationDbContext>().Database.Migrate();
                     }
                 }
                 catch { }
             }
 
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
-
+            //Alllow hosting static files
             app.UseStaticFiles();
-
+            //Enabled Asp.Net Identity
             app.UseIdentity();
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
 
+            //Setup routing
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
