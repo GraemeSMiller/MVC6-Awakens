@@ -45,6 +45,8 @@ namespace MVC6Awakens
             // Add framework services.
             services.AddEntityFramework()
                 .AddSqlServer()
+                                    .AddDbContext<DomainContext>(
+                        options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]))
                 .AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
