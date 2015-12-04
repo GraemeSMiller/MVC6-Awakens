@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNet.Builder;
+﻿using Microsoft.AspNet.Authorization;
+using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Mvc.Filters;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -48,8 +50,18 @@ namespace MVC6Awakens
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            
+            // only allow authenticated users
+            var defaultPolicy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
 
-            services.AddMvc().AddMvcOptions(options => options.ModelMetadataDetailsProviders.Add(new HumanizerMetadataProvider()));
+            services.AddMvc().AddMvcOptions(
+                options =>
+                    {
+                        options.Filters.Add(new AuthorizeFilter(defaultPolicy));
+                        options.ModelMetadataDetailsProviders.Add(new HumanizerMetadataProvider());
+                    });
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
