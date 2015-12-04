@@ -8,9 +8,10 @@ using MVC6Awakens.Models;
 namespace MVC6Awakens.Migrations.Domain
 {
     [DbContext(typeof(DomainContext))]
-    partial class DomainContextModelSnapshot : ModelSnapshot
+    [Migration("20151204184727_Added WeaponOfChoice For Character")]
+    partial class AddedWeaponOfChoiceForCharacter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -21,9 +22,9 @@ namespace MVC6Awakens.Migrations.Domain
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid>("HomePlanetId");
-
                     b.Property<string>("Name");
+
+                    b.Property<Guid>("PlanetId");
 
                     b.Property<string>("WeaponOfChoice");
 
@@ -44,7 +45,7 @@ namespace MVC6Awakens.Migrations.Domain
                 {
                     b.HasOne("MVC6Awakens.Models.Planet")
                         .WithMany()
-                        .HasForeignKey("HomePlanetId");
+                        .HasForeignKey("PlanetId");
                 });
         }
     }

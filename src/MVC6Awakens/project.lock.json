@@ -129,6 +129,146 @@
           "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
         }
       },
+      "Humanizer/2.0.0-beta0001": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.0",
+          "System.Diagnostics.Debug": "4.0.0",
+          "System.Globalization": "4.0.0",
+          "System.Linq": "4.0.0",
+          "System.Reflection": "4.0.0",
+          "System.Reflection.Extensions": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Runtime.Extensions": "4.0.0",
+          "System.Text.RegularExpressions": "4.0.0"
+        },
+        "compile": {
+          "lib/dotnet/Humanizer.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Humanizer.dll": {}
+        },
+        "resource": {
+          "lib/dotnet/af/Humanizer.resources.dll": {
+            "locale": "af"
+          },
+          "lib/dotnet/ar/Humanizer.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/dotnet/bg/Humanizer.resources.dll": {
+            "locale": "bg"
+          },
+          "lib/dotnet/bn-BD/Humanizer.resources.dll": {
+            "locale": "bn-BD"
+          },
+          "lib/dotnet/cs/Humanizer.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/dotnet/da/Humanizer.resources.dll": {
+            "locale": "da"
+          },
+          "lib/dotnet/de/Humanizer.resources.dll": {
+            "locale": "de"
+          },
+          "lib/dotnet/el/Humanizer.resources.dll": {
+            "locale": "el"
+          },
+          "lib/dotnet/es/Humanizer.resources.dll": {
+            "locale": "es"
+          },
+          "lib/dotnet/fa/Humanizer.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/dotnet/fi-FI/Humanizer.resources.dll": {
+            "locale": "fi-FI"
+          },
+          "lib/dotnet/fr/Humanizer.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/dotnet/fr-BE/Humanizer.resources.dll": {
+            "locale": "fr-BE"
+          },
+          "lib/dotnet/he/Humanizer.resources.dll": {
+            "locale": "he"
+          },
+          "lib/dotnet/hr/Humanizer.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/dotnet/hu/Humanizer.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/dotnet/id/Humanizer.resources.dll": {
+            "locale": "id"
+          },
+          "lib/dotnet/it/Humanizer.resources.dll": {
+            "locale": "it"
+          },
+          "lib/dotnet/ja/Humanizer.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/dotnet/nb/Humanizer.resources.dll": {
+            "locale": "nb"
+          },
+          "lib/dotnet/nb-NO/Humanizer.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/dotnet/nl/Humanizer.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/dotnet/pl/Humanizer.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/dotnet/pt/Humanizer.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/dotnet/ro/Humanizer.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/dotnet/ru/Humanizer.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/dotnet/sk/Humanizer.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/dotnet/sl/Humanizer.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/dotnet/sr/Humanizer.resources.dll": {
+            "locale": "sr"
+          },
+          "lib/dotnet/sr-Latn/Humanizer.resources.dll": {
+            "locale": "sr-Latn"
+          },
+          "lib/dotnet/sv/Humanizer.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/dotnet/tr/Humanizer.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/dotnet/uk/Humanizer.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/dotnet/uz-Cyrl-UZ/Humanizer.resources.dll": {
+            "locale": "uz-Cyrl-UZ"
+          },
+          "lib/dotnet/uz-Latn-UZ/Humanizer.resources.dll": {
+            "locale": "uz-Latn-UZ"
+          },
+          "lib/dotnet/vi/Humanizer.resources.dll": {
+            "locale": "vi"
+          },
+          "lib/dotnet/zh-CN/Humanizer.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/dotnet/zh-Hans/Humanizer.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/dotnet/zh-Hant/Humanizer.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "compile": {
@@ -2873,6 +3013,146 @@
         },
         "runtime": {
           "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
+        }
+      },
+      "Humanizer/2.0.0-beta0001": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.0",
+          "System.Diagnostics.Debug": "4.0.0",
+          "System.Globalization": "4.0.0",
+          "System.Linq": "4.0.0",
+          "System.Reflection": "4.0.0",
+          "System.Reflection.Extensions": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Runtime.Extensions": "4.0.0",
+          "System.Text.RegularExpressions": "4.0.0"
+        },
+        "compile": {
+          "lib/dotnet/Humanizer.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Humanizer.dll": {}
+        },
+        "resource": {
+          "lib/dotnet/af/Humanizer.resources.dll": {
+            "locale": "af"
+          },
+          "lib/dotnet/ar/Humanizer.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/dotnet/bg/Humanizer.resources.dll": {
+            "locale": "bg"
+          },
+          "lib/dotnet/bn-BD/Humanizer.resources.dll": {
+            "locale": "bn-BD"
+          },
+          "lib/dotnet/cs/Humanizer.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/dotnet/da/Humanizer.resources.dll": {
+            "locale": "da"
+          },
+          "lib/dotnet/de/Humanizer.resources.dll": {
+            "locale": "de"
+          },
+          "lib/dotnet/el/Humanizer.resources.dll": {
+            "locale": "el"
+          },
+          "lib/dotnet/es/Humanizer.resources.dll": {
+            "locale": "es"
+          },
+          "lib/dotnet/fa/Humanizer.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/dotnet/fi-FI/Humanizer.resources.dll": {
+            "locale": "fi-FI"
+          },
+          "lib/dotnet/fr/Humanizer.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/dotnet/fr-BE/Humanizer.resources.dll": {
+            "locale": "fr-BE"
+          },
+          "lib/dotnet/he/Humanizer.resources.dll": {
+            "locale": "he"
+          },
+          "lib/dotnet/hr/Humanizer.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/dotnet/hu/Humanizer.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/dotnet/id/Humanizer.resources.dll": {
+            "locale": "id"
+          },
+          "lib/dotnet/it/Humanizer.resources.dll": {
+            "locale": "it"
+          },
+          "lib/dotnet/ja/Humanizer.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/dotnet/nb/Humanizer.resources.dll": {
+            "locale": "nb"
+          },
+          "lib/dotnet/nb-NO/Humanizer.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/dotnet/nl/Humanizer.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/dotnet/pl/Humanizer.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/dotnet/pt/Humanizer.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/dotnet/ro/Humanizer.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/dotnet/ru/Humanizer.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/dotnet/sk/Humanizer.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/dotnet/sl/Humanizer.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/dotnet/sr/Humanizer.resources.dll": {
+            "locale": "sr"
+          },
+          "lib/dotnet/sr-Latn/Humanizer.resources.dll": {
+            "locale": "sr-Latn"
+          },
+          "lib/dotnet/sv/Humanizer.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/dotnet/tr/Humanizer.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/dotnet/uk/Humanizer.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/dotnet/uz-Cyrl-UZ/Humanizer.resources.dll": {
+            "locale": "uz-Cyrl-UZ"
+          },
+          "lib/dotnet/uz-Latn-UZ/Humanizer.resources.dll": {
+            "locale": "uz-Latn-UZ"
+          },
+          "lib/dotnet/vi/Humanizer.resources.dll": {
+            "locale": "vi"
+          },
+          "lib/dotnet/zh-CN/Humanizer.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/dotnet/zh-Hans/Humanizer.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/dotnet/zh-Hant/Humanizer.resources.dll": {
+            "locale": "zh-Hant"
+          }
         }
       },
       "Ix-Async/1.2.5": {
@@ -6100,6 +6380,146 @@
           "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
         }
       },
+      "Humanizer/2.0.0-beta0001": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.0",
+          "System.Diagnostics.Debug": "4.0.0",
+          "System.Globalization": "4.0.0",
+          "System.Linq": "4.0.0",
+          "System.Reflection": "4.0.0",
+          "System.Reflection.Extensions": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Runtime.Extensions": "4.0.0",
+          "System.Text.RegularExpressions": "4.0.0"
+        },
+        "compile": {
+          "lib/dotnet/Humanizer.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Humanizer.dll": {}
+        },
+        "resource": {
+          "lib/dotnet/af/Humanizer.resources.dll": {
+            "locale": "af"
+          },
+          "lib/dotnet/ar/Humanizer.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/dotnet/bg/Humanizer.resources.dll": {
+            "locale": "bg"
+          },
+          "lib/dotnet/bn-BD/Humanizer.resources.dll": {
+            "locale": "bn-BD"
+          },
+          "lib/dotnet/cs/Humanizer.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/dotnet/da/Humanizer.resources.dll": {
+            "locale": "da"
+          },
+          "lib/dotnet/de/Humanizer.resources.dll": {
+            "locale": "de"
+          },
+          "lib/dotnet/el/Humanizer.resources.dll": {
+            "locale": "el"
+          },
+          "lib/dotnet/es/Humanizer.resources.dll": {
+            "locale": "es"
+          },
+          "lib/dotnet/fa/Humanizer.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/dotnet/fi-FI/Humanizer.resources.dll": {
+            "locale": "fi-FI"
+          },
+          "lib/dotnet/fr/Humanizer.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/dotnet/fr-BE/Humanizer.resources.dll": {
+            "locale": "fr-BE"
+          },
+          "lib/dotnet/he/Humanizer.resources.dll": {
+            "locale": "he"
+          },
+          "lib/dotnet/hr/Humanizer.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/dotnet/hu/Humanizer.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/dotnet/id/Humanizer.resources.dll": {
+            "locale": "id"
+          },
+          "lib/dotnet/it/Humanizer.resources.dll": {
+            "locale": "it"
+          },
+          "lib/dotnet/ja/Humanizer.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/dotnet/nb/Humanizer.resources.dll": {
+            "locale": "nb"
+          },
+          "lib/dotnet/nb-NO/Humanizer.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/dotnet/nl/Humanizer.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/dotnet/pl/Humanizer.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/dotnet/pt/Humanizer.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/dotnet/ro/Humanizer.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/dotnet/ru/Humanizer.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/dotnet/sk/Humanizer.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/dotnet/sl/Humanizer.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/dotnet/sr/Humanizer.resources.dll": {
+            "locale": "sr"
+          },
+          "lib/dotnet/sr-Latn/Humanizer.resources.dll": {
+            "locale": "sr-Latn"
+          },
+          "lib/dotnet/sv/Humanizer.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/dotnet/tr/Humanizer.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/dotnet/uk/Humanizer.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/dotnet/uz-Cyrl-UZ/Humanizer.resources.dll": {
+            "locale": "uz-Cyrl-UZ"
+          },
+          "lib/dotnet/uz-Latn-UZ/Humanizer.resources.dll": {
+            "locale": "uz-Latn-UZ"
+          },
+          "lib/dotnet/vi/Humanizer.resources.dll": {
+            "locale": "vi"
+          },
+          "lib/dotnet/zh-CN/Humanizer.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/dotnet/zh-Hans/Humanizer.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/dotnet/zh-Hant/Humanizer.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "compile": {
@@ -9324,6 +9744,99 @@
         "lib/net451/EntityFramework.Relational.Design.dll",
         "lib/net451/EntityFramework.Relational.Design.xml",
         "lib/netcore50/_._"
+      ]
+    },
+    "Humanizer/2.0.0-beta0001": {
+      "type": "package",
+      "sha512": "G0JNLTOR9bV8/5Pzt0xADx1aCxmH27JRONCRQkGLLgBbPfdOg8D6//pG2Lo7DOEuximLPJYrrXJXNB30+4vKyA==",
+      "files": [
+        "Humanizer.2.0.0-beta0001.nupkg",
+        "Humanizer.2.0.0-beta0001.nupkg.sha512",
+        "Humanizer.nuspec",
+        "lib/dotnet/af/Humanizer.resources.dll",
+        "lib/dotnet/ar/Humanizer.resources.dll",
+        "lib/dotnet/bg/Humanizer.resources.dll",
+        "lib/dotnet/bn-BD/Humanizer.resources.dll",
+        "lib/dotnet/cs/Humanizer.resources.dll",
+        "lib/dotnet/da/Humanizer.resources.dll",
+        "lib/dotnet/de/Humanizer.resources.dll",
+        "lib/dotnet/el/Humanizer.resources.dll",
+        "lib/dotnet/es/Humanizer.resources.dll",
+        "lib/dotnet/fa/Humanizer.resources.dll",
+        "lib/dotnet/fi-FI/Humanizer.resources.dll",
+        "lib/dotnet/fr/Humanizer.resources.dll",
+        "lib/dotnet/fr-BE/Humanizer.resources.dll",
+        "lib/dotnet/he/Humanizer.resources.dll",
+        "lib/dotnet/hr/Humanizer.resources.dll",
+        "lib/dotnet/hu/Humanizer.resources.dll",
+        "lib/dotnet/Humanizer.dll",
+        "lib/dotnet/Humanizer.pdb",
+        "lib/dotnet/Humanizer.xml",
+        "lib/dotnet/id/Humanizer.resources.dll",
+        "lib/dotnet/it/Humanizer.resources.dll",
+        "lib/dotnet/ja/Humanizer.resources.dll",
+        "lib/dotnet/nb/Humanizer.resources.dll",
+        "lib/dotnet/nb-NO/Humanizer.resources.dll",
+        "lib/dotnet/nl/Humanizer.resources.dll",
+        "lib/dotnet/pl/Humanizer.resources.dll",
+        "lib/dotnet/pt/Humanizer.resources.dll",
+        "lib/dotnet/ro/Humanizer.resources.dll",
+        "lib/dotnet/ru/Humanizer.resources.dll",
+        "lib/dotnet/sk/Humanizer.resources.dll",
+        "lib/dotnet/sl/Humanizer.resources.dll",
+        "lib/dotnet/sr/Humanizer.resources.dll",
+        "lib/dotnet/sr-Latn/Humanizer.resources.dll",
+        "lib/dotnet/sv/Humanizer.resources.dll",
+        "lib/dotnet/tr/Humanizer.resources.dll",
+        "lib/dotnet/uk/Humanizer.resources.dll",
+        "lib/dotnet/uz-Cyrl-UZ/Humanizer.resources.dll",
+        "lib/dotnet/uz-Latn-UZ/Humanizer.resources.dll",
+        "lib/dotnet/vi/Humanizer.resources.dll",
+        "lib/dotnet/zh-CN/Humanizer.resources.dll",
+        "lib/dotnet/zh-Hans/Humanizer.resources.dll",
+        "lib/dotnet/zh-Hant/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/af/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/ar/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/bg/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/bn-BD/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/cs/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/da/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/de/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/el/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/es/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/fa/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/fi-FI/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/fr/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/fr-BE/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/he/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/hr/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/hu/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/Humanizer.dll",
+        "lib/portable-win+net45+wp8+wpa81/Humanizer.pdb",
+        "lib/portable-win+net45+wp8+wpa81/Humanizer.xml",
+        "lib/portable-win+net45+wp8+wpa81/id/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/it/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/ja/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/nb/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/nb-NO/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/nl/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/pl/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/pt/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/ro/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/ru/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/sk/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/sl/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/sr/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/sr-Latn/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/sv/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/tr/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/uk/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/uz-Cyrl-UZ/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/uz-Latn-UZ/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/vi/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/zh-CN/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/zh-Hans/Humanizer.resources.dll",
+        "lib/portable-win+net45+wp8+wpa81/zh-Hant/Humanizer.resources.dll"
       ]
     },
     "Ix-Async/1.2.5": {
@@ -14355,7 +14868,8 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
+      "Humanizer >= 2.0.0-beta0001"
     ],
     "DNXCore,Version=v5.0": []
   }

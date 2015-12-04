@@ -5,10 +5,9 @@ using AutoMapper;
 
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.Data.Entity;
 using MVC6Awakens.Models;
 using MVC6Awakens.ViewModels.Characters;
-
+using AutoMapper.QueryableExtensions;
 
 namespace MVC6Awakens.Controllers
 {
@@ -18,14 +17,15 @@ namespace MVC6Awakens.Controllers
 
         public CharactersController(DomainContext context)
         {
-            this.context = context;    
+            this.context = context;
         }
 
         // GET: Characters
         public IActionResult Index()
         {
-            var domainContext = context.Characters.Include(c => c.HomePlanet);
-            return View(domainContext.ToList());
+            // Automapper projection magic
+            var characters = context.Characters.ProjectTo<CharacterDetail>().ToList();
+            return View(characters);
         }
 
         // GET: Characters/Details/5
@@ -50,7 +50,7 @@ namespace MVC6Awakens.Controllers
         {
             var planets = context.Planets;
             var selectList = new SelectList(planets, "Id", "Name");
-            ViewData["PlanetId"] = selectList;
+            ViewData["HomePlanetId"] = selectList;
             return View(new CharacterCreate());
         }
 
@@ -67,12 +67,11 @@ namespace MVC6Awakens.Controllers
                 return RedirectToAction("Index");
             }
             var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name", characterCreate.PlanetId);
-            ViewData["PlanetId"] = selectList;
+            var selectList = new SelectList(planets, "Id", "Name", characterCreate.HomePlanetId);
+            ViewData["HomePlanetId"] = selectList;
             return View(characterCreate);
         }
 
-        // GET: Characters/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -86,29 +85,28 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
             var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name", character.PlanetId);
-            ViewData["PlanetId"] = selectList;
-            return View(character);
+            var selectList = new SelectList(planets, "Id", "Name", character.HomePlanetId);
+            ViewData["HomePlanetId"] = selectList;
+            return View(Mapper.Map<CharacterEdit>(character));
         }
 
-        // POST: Characters/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Character character)
+        public IActionResult Edit(CharacterEdit characterEdit)
         {
             if (ModelState.IsValid)
             {
+                var character = Mapper.Map<Character>(characterEdit);
                 context.Update(character);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
             var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name", character.PlanetId);
-            ViewData["PlanetId"] = selectList;
-            return View(character);
+            var selectList = new SelectList(planets, "Id", "Name", characterEdit.HomePlanetId);
+            ViewData["HomePlanetId"] = selectList;
+            return View(characterEdit);
         }
 
-        // GET: Characters/Delete/5
         [ActionName("Delete")]
         public IActionResult Delete(Guid? id)
         {
@@ -126,7 +124,6 @@ namespace MVC6Awakens.Controllers
             return View(character);
         }
 
-        // POST: Characters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)

@@ -8,9 +8,10 @@ using MVC6Awakens.Models;
 namespace MVC6Awakens.Migrations.Domain
 {
     [DbContext(typeof(DomainContext))]
-    partial class DomainContextModelSnapshot : ModelSnapshot
+    [Migration("20151204194216_Added Rename HomePlanetId")]
+    partial class AddedRenameHomePlanetId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")

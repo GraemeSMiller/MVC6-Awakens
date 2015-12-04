@@ -4,13 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC6Awakens.ViewModels.Characters
 {
-    public class CharacterCreate
+    public class CharacterEdit
     {
-        public CharacterCreate()
-        {
-            Id = Guid.NewGuid();
-        }
-
         public string WeaponOfChoice { get; set; }
         public Guid Id { get; set; }
         [Required]

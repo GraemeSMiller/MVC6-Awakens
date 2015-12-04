@@ -1,4 +1,6 @@
-@model MVC6Awakens.Models.Character
+@using System.Threading.Tasks
+@using MVC6Awakens.ViewModels.Characters
+@model CharacterEdit
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,20 +14,11 @@
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
-        <div class="form-group">
-            <label asp-for="Name" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PlanetId" class="control-label col-md-2">PlanetId</label>
-            <div class="col-md-10">
-                <select asp-for="PlanetId" asp-items="ViewBag.PlanetId" class="form-control"></select>
-                <span asp-validation-for="PlanetId" class="text-danger" />
-            </div>
-        </div>
+
+        <input Wrap="true" asp-for="Name" class="form-control" />
+        <input Wrap="true" asp-for="WeaponOfChoice" class="form-control" />
+        <select Wrap="true" asp-for="HomePlanetId" asp-items="ViewBag.HomePlanetId" class="form-control"></select>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -39,7 +32,7 @@
 </div>
 
 @section Scripts {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
