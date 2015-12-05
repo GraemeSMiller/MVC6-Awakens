@@ -1,5 +1,4 @@
 using System;
-
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
@@ -8,22 +7,22 @@ using MVC6Awakens.Models;
 
 namespace MVC6Awakens.Controllers
 {
-    public class PlanetsController : Controller
+    public class MoviesController : Controller
     {
         private readonly DomainContext context;
 
-        public PlanetsController(DomainContext context)
+        public MoviesController(DomainContext context)
         {
             this.context = context;    
         }
 
-        // GET: Planets
+        // GET: Movies
         public async Task<IActionResult> Index()
         {
-            return View(await context.Planets.ToListAsync());
+            return View(await context.Movies.ToListAsync());
         }
 
-        // GET: Planets/Details/5
+        // GET: Movies/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -31,37 +30,37 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
 
-            Planet planet = await context.Planets.SingleAsync(m => m.Id == id);
-            if (planet == null)
+            Movie movie = await context.Movies.SingleAsync(m => m.Id == id);
+            if (movie == null)
             {
                 return HttpNotFound();
             }
 
-            return View(planet);
+            return View(movie);
         }
 
-        // GET: Planets/Create
+        // GET: Movies/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Planets/Create
+        // POST: Movies/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Planet planet)
+        public async Task<IActionResult> Create(Movie movie)
         {
             if (ModelState.IsValid)
             {
-                planet.Id = Guid.NewGuid();
-                context.Planets.Add(planet);
+                movie.Id = Guid.NewGuid();
+                context.Movies.Add(movie);
                 await context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(planet);
+            return View(movie);
         }
 
-        // GET: Planets/Edit/5
+        // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -69,29 +68,29 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
 
-            Planet planet = await context.Planets.SingleAsync(m => m.Id == id);
-            if (planet == null)
+            Movie movie = await context.Movies.SingleAsync(m => m.Id == id);
+            if (movie == null)
             {
                 return HttpNotFound();
             }
-            return View(planet);
+            return View(movie);
         }
 
-        // POST: Planets/Edit/5
+        // POST: Movies/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Planet planet)
+        public async Task<IActionResult> Edit(Movie movie)
         {
             if (ModelState.IsValid)
             {
-                context.Update(planet);
+                context.Update(movie);
                 await context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(planet);
+            return View(movie);
         }
 
-        // GET: Planets/Delete/5
+        // GET: Movies/Delete/5
         [ActionName("Delete")]
         public async Task<IActionResult> Delete(Guid? id)
         {
@@ -100,22 +99,22 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
 
-            Planet planet = await context.Planets.SingleAsync(m => m.Id == id);
-            if (planet == null)
+            Movie movie = await context.Movies.SingleAsync(m => m.Id == id);
+            if (movie == null)
             {
                 return HttpNotFound();
             }
 
-            return View(planet);
+            return View(movie);
         }
 
-        // POST: Planets/Delete/5
+        // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            Planet planet = await context.Planets.SingleAsync(m => m.Id == id);
-            context.Planets.Remove(planet);
+            Movie movie = await context.Movies.SingleAsync(m => m.Id == id);
+            context.Movies.Remove(movie);
             await context.SaveChangesAsync();
             return RedirectToAction("Index");
         }

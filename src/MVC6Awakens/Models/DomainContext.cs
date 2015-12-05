@@ -12,6 +12,7 @@ namespace MVC6Awakens.Models
         public DbSet<Species> Species { get; set; }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Planet> Planets { get; set; }
+        public DbSet<Movie> Movies { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Character>()

@@ -60,7 +60,6 @@ namespace MVC6Awakens
                                                      options.UseSqlServer(connectionString);
                                                  })
                 .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -94,8 +93,16 @@ namespace MVC6Awakens
         }
 
 
-        public void ConfigureSecurity(IServiceCollection services)
-        {
+        public void ConfigureSecurity(IServiceCollection services) { 
+            
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy(
+            //        "ManageStore",
+            //        authBuilder => {
+            //            authBuilder.RequireClaim("ManageStore", "Allowed");
+            //        });
+            //});
             services.AddInstance<IAuthorizationHandler>(new CharacterAuthorizationHandler());
             services.AddInstance<IAuthorizationHandler>(new CharacterCreateAuthorizationHandler());
             //services.Configure<AuthorizationOptions>(options =>
@@ -105,6 +112,29 @@ namespace MVC6Awakens
             //});
         }
 
+
+        //This method is invoked when ASPNET_ENV is 'Development' or is not defined
+        //The allowed values are Development,Staging and Production
+        //public void ConfigureDevelopment(IApplicationBuilder app, ILoggerFactory loggerFactory)
+        //{
+        //    loggerFactory.AddConsole(minLevel: LogLevel.Warning);
+
+        //    // StatusCode pages to gracefully handle status codes 400-599.
+        //    app.UseStatusCodePagesWithRedirects("~/Home/StatusCodePage");
+
+        //    // Display custom error page in production when error occurs
+        //    // During development use the ErrorPage middleware to display error information in the browser
+        //    app.UseDeveloperExceptionPage();
+
+        //    app.UseDatabaseErrorPage();
+
+        //    // Add the runtime information page that can be used by developers
+        //    // to see what packages are used by the application
+        //    // default path is: /runtimeinfo
+        //    app.UseRuntimeInfoPage();
+
+        //    Configure(app);
+        //}
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
@@ -119,6 +149,10 @@ namespace MVC6Awakens
                 app.UseDeveloperExceptionPage();
                 //Displays database related error details
                 app.UseDatabaseErrorPage();
+                // Add the runtime information page that can be used by developers
+                // to see what packages are used by the application
+                // default path is: /runtimeinfo
+                app.UseRuntimeInfoPage();
             }
             else
             {
@@ -154,6 +188,7 @@ namespace MVC6Awakens
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseBrowserLink();
         }
 
         // Entry point for the application.

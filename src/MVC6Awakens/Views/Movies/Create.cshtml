@@ -1,4 +1,4 @@
-@model MVC6Awakens.Models.Species
+@model MVC6Awakens.Models.Movie
 
 @{
     ViewData["Title"] = "Create";
@@ -8,12 +8,11 @@
 
 <form asp-action="Create">
     <div class="form-horizontal">
-        <h4>Species</h4>
+        <h4>Create Movie</h4>
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-
-        <input Wrap="true" asp-for="Name" class="form-control"/>
-        <input Wrap="true" asp-for="Description" class="form-control" />
+        <input Wrap="true" asp-for="Title" class="form-control" />
+        <input Wrap="true" asp-for="ReleaseDate" class="form-control" />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

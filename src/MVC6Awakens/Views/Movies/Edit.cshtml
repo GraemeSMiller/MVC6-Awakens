@@ -1,22 +1,22 @@
-@model MVC6Awakens.Models.Species
+@model MVC6Awakens.Models.Movie
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>Create</h2>
+<h2>Movie Edit</h2>
 
-<form asp-action="Create">
+<form asp-action="Edit">
     <div class="form-horizontal">
-        <h4>Species</h4>
+        <h4>Movie</h4>
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-
-        <input Wrap="true" asp-for="Name" class="form-control"/>
-        <input Wrap="true" asp-for="Description" class="form-control" />
+        <input type="hidden" asp-for="Id" />
+        <input Wrap="true" asp-for="Title" class="form-control" />
+        <input Wrap="true" asp-for="ReleaseDate" class="form-control" />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

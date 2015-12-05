@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - MVC6Awakens</title>
+        <title>@ViewData["Title"] - MVC6 Awakens</title>
 
         <environment names="Development">
             <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -29,8 +29,10 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-controller="Characters" asp-action="Index">Characters</a></li>
+                        <li><a asp-controller="Planets" asp-action="Index">Planets</a></li>
+                        <li><a asp-controller="Species" asp-action="Index">Species</a></li>
+                        <li><a asp-controller="Movies" asp-action="Index">Movies</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
                 </div>

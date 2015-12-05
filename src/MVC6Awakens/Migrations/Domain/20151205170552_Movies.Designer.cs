@@ -8,9 +8,10 @@ using MVC6Awakens.Models;
 namespace MVC6Awakens.Migrations.Domain
 {
     [DbContext(typeof(DomainContext))]
-    partial class DomainContextModelSnapshot : ModelSnapshot
+    [Migration("20151205170552_Movies")]
+    partial class Movies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -32,18 +33,6 @@ namespace MVC6Awakens.Migrations.Domain
                     b.Property<bool>("Visible");
 
                     b.Property<string>("WeaponOfChoice");
-
-                    b.HasKey("Id");
-                });
-
-            modelBuilder.Entity("MVC6Awakens.Models.Movie", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("ReleaseDate");
-
-                    b.Property<string>("Title");
 
                     b.HasKey("Id");
                 });
