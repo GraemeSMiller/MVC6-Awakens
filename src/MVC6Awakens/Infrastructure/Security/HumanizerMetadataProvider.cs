@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text.RegularExpressions;
 
 using Humanizer;
+
 using Microsoft.AspNet.Mvc.ModelBinding.Metadata;
 
-namespace MVC6Awakens.Infrastructure
+
+namespace MVC6Awakens.Infrastructure.Security
 {
     /// <summary>
     /// Whenever a model property does not have Display Attribute, we add it here: separate words with spaces. 
@@ -31,11 +33,7 @@ namespace MVC6Awakens.Infrastructure
                 return false;
             }
 
-            if (string.IsNullOrEmpty(propertyName))
-            {
-                return false;
-            }
-            return true;
+            return !string.IsNullOrEmpty(propertyName);
         }
 
 

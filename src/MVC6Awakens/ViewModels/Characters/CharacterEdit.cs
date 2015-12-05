@@ -12,5 +12,7 @@ namespace MVC6Awakens.ViewModels.Characters
         public string Name { get; set; }
         [Required]
         public Guid? HomePlanetId { get; set; }
+
+        public string CreatorId { get; set; }
     }
 }

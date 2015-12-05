@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using MVC6Awakens.Models;
-using MVC6Awakens.ViewModels.Characters;
 
-namespace MVC6Awakens.Infrastructure.AutoMapper
+namespace MVC6Awakens.ViewModels.Characters
 {
     public class CharacterProfile : Profile
     {

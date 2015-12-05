@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 using AutoMapper;
 
@@ -9,22 +11,32 @@ using MVC6Awakens.Models;
 using MVC6Awakens.ViewModels.Characters;
 using AutoMapper.QueryableExtensions;
 
+using Microsoft.AspNet.Authorization;
+
+using MVC6Awakens.Infrastructure.Security;
+
+
 namespace MVC6Awakens.Controllers
 {
     public class CharactersController : Controller
     {
         private DomainContext context;
 
-        public CharactersController(DomainContext context)
+        private readonly IAuthorizationService authorizationService;
+
+
+        public CharactersController(DomainContext context, IAuthorizationService authorizationService)
         {
             this.context = context;
+            this.authorizationService = authorizationService;
         }
+
 
         // GET: Characters
         public IActionResult Index()
         {
             // Automapper projection magic
-            var characters = context.Characters.ProjectTo<CharacterDetail>().ToList();
+            var characters = context.Characters.Where(a => a.Visible).ProjectTo<CharacterDetail>().ToList();
             return View(characters);
         }
 
@@ -57,8 +69,16 @@ namespace MVC6Awakens.Controllers
         // POST: Characters/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CharacterCreate characterCreate)
+        public async Task<IActionResult> Create(CharacterCreate characterCreate)
         {
+            var canCreate = await authorizationService.AuthorizeAsync(
+                HttpContext.User,
+                characterCreate,
+                CharacterOperations.Create);
+            if (!canCreate)
+            {
+                return new ChallengeResult();
+            }
             if (ModelState.IsValid)
             {
                 var character = Mapper.Map<Character>(characterCreate);
@@ -72,7 +92,7 @@ namespace MVC6Awakens.Controllers
             return View(characterCreate);
         }
 
-        public IActionResult Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
@@ -84,6 +104,15 @@ namespace MVC6Awakens.Controllers
             {
                 return HttpNotFound();
             }
+            var canEdit = await authorizationService.AuthorizeAsync(
+    HttpContext.User,
+    character,
+    CharacterOperations.Create);
+            if (!canEdit)
+            {
+                return new ChallengeResult();
+            }
+
             var planets = context.Planets;
             var selectList = new SelectList(planets, "Id", "Name", character.HomePlanetId);
             ViewData["HomePlanetId"] = selectList;

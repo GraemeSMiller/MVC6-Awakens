@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 
 using MVC6Awakens.Infrastructure;
 using MVC6Awakens.Infrastructure.AutoMapper;
+using MVC6Awakens.Infrastructure.Security;
 using MVC6Awakens.Models;
 using MVC6Awakens.Services;
 
@@ -41,6 +42,7 @@ namespace MVC6Awakens
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ConfigureSecurity(services);
             // Add framework services.
             services.AddEntityFramework()
                 .AddSqlServer()
@@ -50,8 +52,9 @@ namespace MVC6Awakens
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-            
+
             // only allow authenticated users
+            //http://leastprivilege.com/2015/10/12/the-state-of-security-in-asp-net-5-and-mvc-6-authorization/
             var defaultPolicy = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
                 .Build();
@@ -63,9 +66,23 @@ namespace MVC6Awakens
                         options.ModelMetadataDetailsProviders.Add(new HumanizerMetadataProvider());
                     });
 
+
+
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+        }
+
+
+        public void ConfigureSecurity(IServiceCollection services)
+        {
+            services.AddInstance<IAuthorizationHandler>(new CharacterAuthorizationHandler());
+            services.AddInstance<IAuthorizationHandler>(new CharacterCreateAuthorizationHandler());
+            //services.Configure<AuthorizationOptions>(options =>
+            //{
+            //    options.AddPolicy("AllowProfileManagement", policy => policy.Requirements.Add(
+            //        services.BuildServiceProvider().GetRequiredService<AllowProfileManagementRequirement>()));
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -103,6 +120,8 @@ namespace MVC6Awakens
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
             //Alllow hosting static files
             app.UseStaticFiles();
+
+            app.UseCookieAuthentication(options =>{ options.AutomaticAuthenticate = true; });
             //Enabled Asp.Net Identity
             app.UseIdentity();
 
