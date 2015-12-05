@@ -3,6 +3,7 @@ using FluentValidation.Attributes;
 
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Cors.Infrastructure;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Mvc.Filters;
@@ -69,7 +70,11 @@ namespace MVC6Awakens
             var defaultPolicy = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
                 .Build();
+            services.AddCors();
 
+
+
+            //services.AddCors();
             services.AddMvc().AddMvcOptions(
                 options =>
                     {
@@ -140,8 +145,8 @@ namespace MVC6Awakens
             //Enabled Asp.Net Identity
             app.UseIdentity();
 
-            // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
-
+            //// To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
+            //app.UseCors(a => a.AllowAnyOrigin());
             //Setup routing
             app.UseMvc(routes =>
             {
