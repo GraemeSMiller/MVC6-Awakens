@@ -27,7 +27,8 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
-    "Humanizer": "2.0.0-beta0001"
+    "Humanizer": "2.0.0-beta0001",
+    "FluentValidation": "5.6.2"
   },
 
   "commands": {

@@ -22,7 +22,7 @@ namespace MVC6Awakens.Infrastructure.Security
             //    context.Succeed(requirement);
             //    return;
             //}
-            context.Fail();
+            context.Succeed(requirement);
         }
     }
 }

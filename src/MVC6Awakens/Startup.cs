@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNet.Authorization;
+﻿using FluentValidation;
+using FluentValidation.Attributes;
+
+using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Mvc.Filters;
+using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,9 +14,12 @@ using Microsoft.Extensions.Logging;
 
 using MVC6Awakens.Infrastructure;
 using MVC6Awakens.Infrastructure.AutoMapper;
+using MVC6Awakens.Infrastructure.FluentValidationBETA;
 using MVC6Awakens.Infrastructure.Security;
 using MVC6Awakens.Models;
 using MVC6Awakens.Services;
+using MVC6Awakens.ViewModels.Characters;
+
 
 namespace MVC6Awakens
 {
@@ -63,12 +70,16 @@ namespace MVC6Awakens
                 options =>
                     {
                         options.Filters.Add(new AuthorizeFilter(defaultPolicy));
+                        options.ModelValidatorProviders.Add(services.BuildServiceProvider().GetRequiredService<IModelValidatorProvider>());
                         options.ModelMetadataDetailsProviders.Add(new HumanizerMetadataProvider());
                     });
 
 
+            services.AddTransient<IValidator<CharacterCreate>,CharacterCreateValidator>();
 
             // Add application services.
+            services.AddTransient<IModelValidatorProvider, FluentValidationModelValidatorProvider>();
+            services.AddTransient<IValidatorFactory, MvcValidatorFactory>();
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
         }
