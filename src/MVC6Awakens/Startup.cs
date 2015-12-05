@@ -12,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-using MVC6Awakens.Infrastructure;
 using MVC6Awakens.Infrastructure.AutoMapper;
 using MVC6Awakens.Infrastructure.FluentValidationBETA;
 using MVC6Awakens.Infrastructure.Security;
@@ -28,9 +27,10 @@ namespace MVC6Awakens
         public Startup(IHostingEnvironment env)
         {
             // Set up configuration sources.
+            var formattableString = $"appsettings.{env.EnvironmentName}.json";
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                .AddJsonFile(formattableString, optional: true);
 
             //Check the environment to see if we are developing
             if (env.IsDevelopment())
@@ -50,11 +50,15 @@ namespace MVC6Awakens
         public void ConfigureServices(IServiceCollection services)
         {
             ConfigureSecurity(services);
-            // Add framework services.
+            // Add framework services.                                                     
+            var connectionString = Configuration["Data:DefaultConnection:ConnectionString"];
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<DomainContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]))
-                .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+                .AddDbContext<DomainContext>(options =>
+                                                 {
+                                                     options.UseSqlServer(connectionString);
+                                                 })
+                .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -75,7 +79,7 @@ namespace MVC6Awakens
                     });
 
 
-            services.AddTransient<IValidator<CharacterCreate>,CharacterCreateValidator>();
+            services.AddTransient<IValidator<CharacterCreate>, CharacterCreateValidator>();
 
             // Add application services.
             services.AddTransient<IModelValidatorProvider, FluentValidationModelValidatorProvider>();
@@ -132,7 +136,7 @@ namespace MVC6Awakens
             //Alllow hosting static files
             app.UseStaticFiles();
 
-            app.UseCookieAuthentication(options =>{ options.AutomaticAuthenticate = true; });
+            app.UseCookieAuthentication(options => { options.AutomaticAuthenticate = true; });
             //Enabled Asp.Net Identity
             app.UseIdentity();
 

@@ -21,11 +21,14 @@ namespace MVC6Awakens.Infrastructure.FluentValidationBETA
         public void GetValidators(ModelValidatorProviderContext context)
         {
             IValidator validator = CreateValidator(context);
-
-            if (!IsValidatingProperty(context))
+            if (validator != null)
             {
-                context.Validators.Add(new FluentValidationModelValidator(validator));
+                if (!IsValidatingProperty(context))
+                {
+                    context.Validators.Add(new FluentValidationModelValidator(validator));
+                }
             }
+
         }
 
         protected virtual IValidator CreateValidator(ModelValidatorProviderContext context)
