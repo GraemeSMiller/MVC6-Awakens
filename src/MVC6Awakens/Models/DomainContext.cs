@@ -7,7 +7,7 @@ namespace MVC6Awakens.Models
     {
         public DomainContext()
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Planet> Planets { get; set; }
