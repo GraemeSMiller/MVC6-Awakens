@@ -12,6 +12,7 @@ using MVC6Awakens.ViewModels.Characters;
 using AutoMapper.QueryableExtensions;
 
 using Microsoft.AspNet.Authorization;
+using Microsoft.Data.Entity;
 
 using MVC6Awakens.Infrastructure.Security;
 
@@ -60,9 +61,8 @@ namespace MVC6Awakens.Controllers
         // GET: Characters/Create
         public IActionResult Create()
         {
-            var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name");
-            ViewData["HomePlanetId"] = selectList;
+            ViewData["HomePlanetId"] = new SelectList(context.Planets, "Id", "Name");
+            ViewData["SpeciesId"] = new SelectList(context.Species, "Id", "Name");
             return View(new CharacterCreate());
         }
 
@@ -86,9 +86,8 @@ namespace MVC6Awakens.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name", characterCreate.HomePlanetId);
-            ViewData["HomePlanetId"] = selectList;
+            ViewData["HomePlanetId"] = new SelectList(context.Planets, "Id", "Name", characterCreate.HomePlanetId);
+            ViewData["SpeciesId"] = new SelectList(context.Species, "Id", "Name", characterCreate.SpeciesId);
             return View(characterCreate);
         }
 
@@ -113,9 +112,8 @@ namespace MVC6Awakens.Controllers
                 return new ChallengeResult();
             }
 
-            var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name", character.HomePlanetId);
-            ViewData["HomePlanetId"] = selectList;
+            ViewData["HomePlanetId"] = new SelectList(context.Planets, "Id", "Name", character.HomePlanetId);
+            ViewData["SpeciesId"] = new SelectList(context.Species, "Id", "Name", character.SpeciesId);
             return View(Mapper.Map<CharacterEdit>(character));
         }
 
@@ -130,9 +128,8 @@ namespace MVC6Awakens.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var planets = context.Planets;
-            var selectList = new SelectList(planets, "Id", "Name", characterEdit.HomePlanetId);
-            ViewData["HomePlanetId"] = selectList;
+            ViewData["HomePlanetId"] = new SelectList(context.Planets, "Id", "Name", characterEdit.HomePlanetId);
+            ViewData["SpeciesId"] = new SelectList(context.Species, "Id", "Name", characterEdit.SpeciesId);
             return View(characterEdit);
         }
 

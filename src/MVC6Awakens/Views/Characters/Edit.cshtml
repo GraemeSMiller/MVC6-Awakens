@@ -18,7 +18,9 @@
         <input Wrap="true" asp-for="Name" class="form-control" />
         <input Wrap="true" asp-for="WeaponOfChoice" class="form-control" />
         <select Wrap="true" asp-for="HomePlanetId" asp-items="ViewBag.HomePlanetId" class="form-control"></select>
-
+        <select Wrap="true" asp-for="SpeciesId" asp-items="ViewBag.SpeciesId" class="form-control">
+            <option>Choose...</option>
+        </select>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
