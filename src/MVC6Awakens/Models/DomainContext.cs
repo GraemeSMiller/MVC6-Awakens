@@ -9,6 +9,7 @@ namespace MVC6Awakens.Models
         {
             Database.Migrate();
         }
+        public DbSet<Species> Species { get; set; }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Planet> Planets { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
