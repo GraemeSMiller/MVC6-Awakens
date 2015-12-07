@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+using MVC6Awakens.Infrastructure.ModelBinders;
+
 
 namespace MVC6Awakens.ViewModels.Characters
 {

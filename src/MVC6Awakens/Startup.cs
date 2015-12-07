@@ -15,11 +15,10 @@ using Microsoft.Extensions.Logging;
 
 using MVC6Awakens.Infrastructure.AutoMapper;
 using MVC6Awakens.Infrastructure.FluentValidationBETA;
+using MVC6Awakens.Infrastructure.ModelBinders;
 using MVC6Awakens.Infrastructure.Security;
 using MVC6Awakens.Models;
 using MVC6Awakens.Services;
-using MVC6Awakens.ViewModels.Characters;
-
 
 namespace MVC6Awakens
 {
@@ -76,6 +75,7 @@ namespace MVC6Awakens
             services.AddMvc().AddMvcOptions(
                 options =>
                     {
+                        options.ModelBinders.Insert(0, new TrimmingSimpleTypeModelBinder());
                         options.Filters.Add(new AuthorizeFilter(defaultPolicy));
                         options.ModelMetadataDetailsProviders.Add(new HumanizerMetadataProvider());
                     }).AddFluentValidation();

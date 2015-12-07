@@ -3,7 +3,7 @@
 using MVC6Awakens.Infrastructure.Dropdowns;
 
 
-namespace MVC6Awakens.TagHelpers
+namespace MVC6Awakens.Infrastructure.TagHelpers
 {
     [HtmlTargetElement("select", Attributes = "query-for")]
     public class SelectQueryTagHelper: TagHelper

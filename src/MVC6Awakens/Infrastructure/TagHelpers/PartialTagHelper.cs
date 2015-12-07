@@ -1,11 +1,13 @@
 ﻿using System.Threading.Tasks;
+
 using Microsoft.AspNet.Mvc.Razor;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.AspNet.Mvc.ViewEngines;
 using Microsoft.AspNet.Mvc.ViewFeatures;
 using Microsoft.AspNet.Razor.TagHelpers;
 
-namespace MVC6Awakens.TagHelpers
+
+namespace MVC6Awakens.Infrastructure.TagHelpers
 {
     [HtmlTargetElement("partial", Attributes = "name")]
     public class PartialTagHelper : TagHelper

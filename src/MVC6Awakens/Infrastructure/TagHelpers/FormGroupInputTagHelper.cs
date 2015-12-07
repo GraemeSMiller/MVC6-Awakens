@@ -3,7 +3,7 @@ using Microsoft.AspNet.Mvc.ViewFeatures;
 using Microsoft.AspNet.Razor.TagHelpers;
 
 
-namespace MVC6Awakens.TagHelpers
+namespace MVC6Awakens.Infrastructure.TagHelpers
 {
 
     /// <summary>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Razor.TagHelpers;
 
-namespace MVC6Awakens.TagHelpers
+
+namespace MVC6Awakens.Infrastructure.TagHelpers
 {
     /// <summary>
     /// This is a very simple helper that can be applied to any HTML element. If you add Visible="<A Boolean Value or Express>" then it will hide the element if the boolean is false
