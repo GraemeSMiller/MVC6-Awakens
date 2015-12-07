@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using MVC6Awakens.Infrastructure;
 using MVC6Awakens.Infrastructure.AutoMapper;
 using MVC6Awakens.Infrastructure.FluentValidationBETA;
 using MVC6Awakens.Infrastructure.ModelBinders;

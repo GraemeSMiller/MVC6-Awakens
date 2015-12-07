@@ -10,6 +10,7 @@ namespace MVC6Awakens.Infrastructure.TagHelpers
     [HtmlTargetElement(Attributes = nameof(Visble))]
     public class VisbleTagHelper : TagHelper
     {
+        public override int Order => 0;
         public bool Visble { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)

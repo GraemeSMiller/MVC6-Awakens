@@ -6,17 +6,13 @@ using System.Reflection;
 
 namespace MVC6Awakens.Infrastructure.ModelBinders
 {
-    public class TrimmingSimpleTypeModelBinder : IModelBinder
+    public class TrimmingSimpleTypeModelBinder : SimpleTypeModelBinder
     {
-        public async Task<ModelBindingResult> BindModelAsync(ModelBindingContext bindingContext)
+        public new async Task<ModelBindingResult> BindModelAsync(ModelBindingContext bindingContext)
         {
-            var result = new ModelBindingResult();
+            var result = await base.BindModelAsync(bindingContext);
             if (bindingContext.ModelType == typeof(string))
             {
-                //Use simple type model binder as base binder
-                var simpleTypeModelBinder = new SimpleTypeModelBinder();
-                //Get value using simple Type
-                result = await simpleTypeModelBinder.BindModelAsync(bindingContext);
                 //Get properies of the top level model
                 var property = bindingContext.ModelMetadata.ContainerType.GetRuntimeProperties().FirstOrDefault(p => p.Name == bindingContext.ModelName);
                 //Get custom attributes

@@ -9,7 +9,7 @@ using Humanizer;
 using Microsoft.AspNet.Mvc.ModelBinding.Metadata;
 
 
-namespace MVC6Awakens.Infrastructure.Security
+namespace MVC6Awakens.Infrastructure
 {
     /// <summary>
     /// Whenever a model property does not have Display Attribute, we add it here: separate words with spaces. 

@@ -1994,6 +1994,36 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Primitives/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Primitives.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2007,6 +2037,41 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.Net.Http.Server/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Primitives": "1.0.0-beta8",
+          "Microsoft.Net.WebSockets": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Net.Http.Server.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Net.Http.Server.dll": {}
+        }
+      },
+      "Microsoft.Net.WebSockets/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Net.WebSockets.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
@@ -4041,6 +4106,38 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Runtime": "4.0.21-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Runtime.InteropServices": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Primitives/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.1-beta-23409",
+          "System.Runtime": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Primitives.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -4057,6 +4154,53 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.Net.Http.Server/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Primitives": "1.0.0-beta8",
+          "Microsoft.Net.WebSockets": "1.0.0-beta8",
+          "Microsoft.Win32.Primitives": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.IO.FileSystem": "4.0.1-beta-23409",
+          "System.Security.Claims": "4.0.1-beta-23409",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23409",
+          "System.Security.Principal.Windows": "4.0.0-beta-23409",
+          "System.Threading.Overlapped": "4.0.0"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Net.Http.Server.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Net.Http.Server.dll": {}
+        }
+      },
+      "Microsoft.Net.WebSockets/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Diagnostics.Contracts": "4.0.1-beta-23409",
+          "System.Diagnostics.Tools": "4.0.1-beta-23409",
+          "System.IO": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Net.Primitives": "4.0.11-beta-23409",
+          "System.Net.WebSockets": "4.0.0-beta-23409",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23409",
+          "System.Text.Encoding.Extensions": "4.0.11-beta-23409",
+          "System.Threading": "4.0.11-beta-23409",
+          "System.Threading.Tasks": "4.0.11-beta-23409",
+          "System.Threading.ThreadPool": "4.0.10-beta-23409",
+          "System.Threading.Timer": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Net.WebSockets.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
@@ -4080,17 +4224,13 @@
           "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
-      "Microsoft.Win32.Primitives/4.0.0": {
+      "Microsoft.Win32.Primitives/4.0.1-beta-23409": {
         "type": "package",
         "dependencies": {
-          "System.Runtime": "4.0.20",
-          "System.Runtime.InteropServices": "4.0.20"
+          "System.Runtime": "4.0.0"
         },
         "compile": {
           "ref/dotnet/Microsoft.Win32.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
       "Microsoft.Win32.Registry/4.0.0-beta-23516": {
@@ -7194,6 +7334,36 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Primitives/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Primitives.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -7207,6 +7377,41 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.Net.Http.Server/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Primitives": "1.0.0-beta8",
+          "Microsoft.Net.WebSockets": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Net.Http.Server.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Net.Http.Server.dll": {}
+        }
+      },
+      "Microsoft.Net.WebSockets/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Net.WebSockets.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
@@ -9464,6 +9669,36 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Primitives/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Primitives.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -9477,6 +9712,41 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.Net.Http.Server/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Primitives": "1.0.0-beta8",
+          "Microsoft.Net.WebSockets": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Net.Http.Server.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Net.Http.Server.dll": {}
+        }
+      },
+      "Microsoft.Net.WebSockets/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Net.WebSockets.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
@@ -11514,6 +11784,38 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Runtime": "4.0.21-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Runtime.InteropServices": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Primitives/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.1-beta-23409",
+          "System.Runtime": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Primitives.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -11530,6 +11832,53 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.Net.Http.Server/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Primitives": "1.0.0-beta8",
+          "Microsoft.Net.WebSockets": "1.0.0-beta8",
+          "Microsoft.Win32.Primitives": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.IO.FileSystem": "4.0.1-beta-23409",
+          "System.Security.Claims": "4.0.1-beta-23409",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23409",
+          "System.Security.Principal.Windows": "4.0.0-beta-23409",
+          "System.Threading.Overlapped": "4.0.0"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Net.Http.Server.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Net.Http.Server.dll": {}
+        }
+      },
+      "Microsoft.Net.WebSockets/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Diagnostics.Contracts": "4.0.1-beta-23409",
+          "System.Diagnostics.Tools": "4.0.1-beta-23409",
+          "System.IO": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Net.Primitives": "4.0.11-beta-23409",
+          "System.Net.WebSockets": "4.0.0-beta-23409",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23409",
+          "System.Text.Encoding.Extensions": "4.0.11-beta-23409",
+          "System.Threading": "4.0.11-beta-23409",
+          "System.Threading.Tasks": "4.0.11-beta-23409",
+          "System.Threading.ThreadPool": "4.0.10-beta-23409",
+          "System.Threading.Timer": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Net.WebSockets.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
@@ -11553,17 +11902,13 @@
           "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
-      "Microsoft.Win32.Primitives/4.0.0": {
+      "Microsoft.Win32.Primitives/4.0.1-beta-23409": {
         "type": "package",
         "dependencies": {
-          "System.Runtime": "4.0.20",
-          "System.Runtime.InteropServices": "4.0.20"
+          "System.Runtime": "4.0.0"
         },
         "compile": {
           "ref/dotnet/Microsoft.Win32.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
       "Microsoft.Win32.Registry/4.0.0-beta-23516": {
@@ -11622,6 +11967,19 @@
         },
         "runtime": {
           "runtimes/win/lib/dotnet5.4/System.Text.Encoding.CodePages.dll": {}
+        }
+      },
+      "runtime.win7.Microsoft.Win32.Primitives/4.0.1-beta-23409": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.0.20",
+          "System.Runtime.InteropServices": "4.0.20"
+        },
+        "compile": {
+          "ref/dotnet/_._": {}
+        },
+        "runtime": {
+          "runtimes/win7/lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
       "runtime.win7.System.Console/4.0.0-beta-23516": {
@@ -14923,6 +15281,38 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Runtime": "4.0.21-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Runtime.InteropServices": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Primitives/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.1-beta-23409",
+          "System.Runtime": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Primitives.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -14939,6 +15329,53 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.Net.Http.Server/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Primitives": "1.0.0-beta8",
+          "Microsoft.Net.WebSockets": "1.0.0-beta8",
+          "Microsoft.Win32.Primitives": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.IO.FileSystem": "4.0.1-beta-23409",
+          "System.Security.Claims": "4.0.1-beta-23409",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23409",
+          "System.Security.Principal.Windows": "4.0.0-beta-23409",
+          "System.Threading.Overlapped": "4.0.0"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Net.Http.Server.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Net.Http.Server.dll": {}
+        }
+      },
+      "Microsoft.Net.WebSockets/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Diagnostics.Contracts": "4.0.1-beta-23409",
+          "System.Diagnostics.Tools": "4.0.1-beta-23409",
+          "System.IO": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Net.Primitives": "4.0.11-beta-23409",
+          "System.Net.WebSockets": "4.0.0-beta-23409",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23409",
+          "System.Text.Encoding.Extensions": "4.0.11-beta-23409",
+          "System.Threading": "4.0.11-beta-23409",
+          "System.Threading.Tasks": "4.0.11-beta-23409",
+          "System.Threading.ThreadPool": "4.0.10-beta-23409",
+          "System.Threading.Timer": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Net.WebSockets.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
@@ -14962,17 +15399,13 @@
           "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
-      "Microsoft.Win32.Primitives/4.0.0": {
+      "Microsoft.Win32.Primitives/4.0.1-beta-23409": {
         "type": "package",
         "dependencies": {
-          "System.Runtime": "4.0.20",
-          "System.Runtime.InteropServices": "4.0.20"
+          "System.Runtime": "4.0.0"
         },
         "compile": {
           "ref/dotnet/Microsoft.Win32.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
       "Microsoft.Win32.Registry/4.0.0-beta-23516": {
@@ -15031,6 +15464,19 @@
         },
         "runtime": {
           "runtimes/win/lib/dotnet5.4/System.Text.Encoding.CodePages.dll": {}
+        }
+      },
+      "runtime.win7.Microsoft.Win32.Primitives/4.0.1-beta-23409": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.0.20",
+          "System.Runtime.InteropServices": "4.0.20"
+        },
+        "compile": {
+          "ref/dotnet/_._": {}
+        },
+        "runtime": {
+          "runtimes/win7/lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
       "runtime.win7.System.Console/4.0.0-beta-23516": {
@@ -18185,6 +18631,42 @@
         "Microsoft.Extensions.WebEncoders.Core.nuspec"
       ]
     },
+    "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "m0NE8yhLNYlHlXfVRdfkwv+aR1a3oL06jf4sXejQKTnhE3hg6Biy7a3/W19ao6IaSyk640ARxrrt2jBEJzeUjg==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/dnx451/Microsoft.Framework.Logging.Abstractions.xml",
+        "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.xml",
+        "lib/dotnet/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/dotnet/Microsoft.Framework.Logging.Abstractions.xml",
+        "lib/net45/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/net45/Microsoft.Framework.Logging.Abstractions.xml",
+        "Microsoft.Framework.Logging.Abstractions.1.0.0-beta8.nupkg",
+        "Microsoft.Framework.Logging.Abstractions.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Framework.Logging.Abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Framework.Primitives/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "tCmbjiE+AgwTfikByvv0xEsnA/z5SOAecZT6gb7EbjuanlzzCUyqTSnvi5SRLGBQsTNKjLiQFFlVOeWHZPOcDg==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.Primitives.dll",
+        "lib/dnx451/Microsoft.Framework.Primitives.xml",
+        "lib/dnxcore50/Microsoft.Framework.Primitives.dll",
+        "lib/dnxcore50/Microsoft.Framework.Primitives.xml",
+        "lib/dotnet/Microsoft.Framework.Primitives.dll",
+        "lib/dotnet/Microsoft.Framework.Primitives.xml",
+        "lib/net45/Microsoft.Framework.Primitives.dll",
+        "lib/net45/Microsoft.Framework.Primitives.xml",
+        "Microsoft.Framework.Primitives.1.0.0-beta8.nupkg",
+        "Microsoft.Framework.Primitives.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Framework.Primitives.nuspec"
+      ]
+    },
     "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -18197,6 +18679,38 @@
         "Microsoft.Net.Http.Headers.1.0.0-rc1-final.nupkg",
         "Microsoft.Net.Http.Headers.1.0.0-rc1-final.nupkg.sha512",
         "Microsoft.Net.Http.Headers.nuspec"
+      ]
+    },
+    "Microsoft.Net.Http.Server/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "/ee29vfIeGjw1a3CRHO4iFJozzYFQZ+NJxDaDhz9FMAervPSZtJ5em5JQuD7UKBxG1D8ILkZAwko91JH3TtMbg==",
+      "files": [
+        "lib/dnx451/Microsoft.Net.Http.Server.dll",
+        "lib/dnx451/Microsoft.Net.Http.Server.xml",
+        "lib/dnxcore50/Microsoft.Net.Http.Server.dll",
+        "lib/dnxcore50/Microsoft.Net.Http.Server.xml",
+        "lib/net451/Microsoft.Net.Http.Server.dll",
+        "lib/net451/Microsoft.Net.Http.Server.xml",
+        "Microsoft.Net.Http.Server.1.0.0-beta8.nupkg",
+        "Microsoft.Net.Http.Server.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Net.Http.Server.nuspec"
+      ]
+    },
+    "Microsoft.Net.WebSockets/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "V/TFJrBBX7k71vkZjg8bqRQi2oB751f6Dc0JtAkMUYNz2BCUDVaT0ilcgviid7TDBIJuRLV8za17T3HjSHVo5g==",
+      "files": [
+        "lib/dnx451/Microsoft.Net.WebSockets.dll",
+        "lib/dnx451/Microsoft.Net.WebSockets.xml",
+        "lib/dnxcore50/Microsoft.Net.WebSockets.dll",
+        "lib/dnxcore50/Microsoft.Net.WebSockets.xml",
+        "lib/net451/Microsoft.Net.WebSockets.dll",
+        "lib/net451/Microsoft.Net.WebSockets.xml",
+        "Microsoft.Net.WebSockets.1.0.0-beta8.nupkg",
+        "Microsoft.Net.WebSockets.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Net.WebSockets.nuspec"
       ]
     },
     "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
@@ -18212,36 +18726,26 @@
         "Microsoft.VisualStudio.Web.BrowserLink.Loader.nuspec"
       ]
     },
-    "Microsoft.Win32.Primitives/4.0.0": {
+    "Microsoft.Win32.Primitives/4.0.1-beta-23409": {
       "type": "package",
       "serviceable": true,
-      "sha512": "CypEz9/lLOup8CEhiAmvr7aLs1zKPYyEU1sxQeEr6G0Ci8/F0Y6pYR1zzkROjM8j8Mq0typmbu676oYyvErQvg==",
+      "sha512": "HXH0c3ENDxAh6+BmH2Ph9e4CVW+flMERWltPXKKh9DgzzNhhY4fZoYdQ7L/rwrfL0FWTARXyl6ovkbxJRIBPxA==",
       "files": [
-        "lib/dotnet/Microsoft.Win32.Primitives.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net46/Microsoft.Win32.Primitives.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "Microsoft.Win32.Primitives.4.0.0.nupkg",
-        "Microsoft.Win32.Primitives.4.0.0.nupkg.sha512",
+        "Microsoft.Win32.Primitives.4.0.1-beta-23409.nupkg",
+        "Microsoft.Win32.Primitives.4.0.1-beta-23409.nupkg.sha512",
         "Microsoft.Win32.Primitives.nuspec",
-        "ref/dotnet/de/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/es/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/fr/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/it/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/ja/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/ko/Microsoft.Win32.Primitives.xml",
         "ref/dotnet/Microsoft.Win32.Primitives.dll",
-        "ref/dotnet/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/ru/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/zh-hans/Microsoft.Win32.Primitives.xml",
-        "ref/dotnet/zh-hant/Microsoft.Win32.Primitives.xml",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
         "ref/net46/Microsoft.Win32.Primitives.dll",
         "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._"
+        "ref/xamarinmac20/_._",
+        "runtime.json"
       ]
     },
     "Microsoft.Win32.Registry/4.0.0-beta-23516": {
@@ -18323,6 +18827,28 @@
         "runtimes/win/lib/win8/_._",
         "runtimes/win/lib/wp8/_._",
         "runtimes/win/lib/wpa81/_._"
+      ]
+    },
+    "runtime.win7.Microsoft.Win32.Primitives/4.0.1-beta-23409": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "QWfMUR88YXL0Wyyv1vuuGTjYDeqUe0w0TOYSRa3dCkotfTRJVFeWEaUMyTZJy7NhUEju5+Bw7FA1DW2SCcS3sA==",
+      "files": [
+        "ref/dotnet/_._",
+        "runtime.win7.Microsoft.Win32.Primitives.4.0.1-beta-23409.nupkg",
+        "runtime.win7.Microsoft.Win32.Primitives.4.0.1-beta-23409.nupkg.sha512",
+        "runtime.win7.Microsoft.Win32.Primitives.nuspec",
+        "runtimes/win7/lib/dotnet/de/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/es/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/fr/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/it/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/ja/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/ko/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/Microsoft.Win32.Primitives.dll",
+        "runtimes/win7/lib/dotnet/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/ru/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/zh-hans/Microsoft.Win32.Primitives.xml",
+        "runtimes/win7/lib/dotnet/zh-hant/Microsoft.Win32.Primitives.xml"
       ]
     },
     "runtime.win7.System.Console/4.0.0-beta-23516": {
@@ -22583,7 +23109,8 @@
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
       "Humanizer >= 2.0.0-beta0001",
-      "FluentValidation >= 5.6.2"
+      "FluentValidation >= 5.6.2",
+      "Microsoft.Net.Http.Server >= 1.0.0-beta8"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
