@@ -1,4 +1,4 @@
-@model MVC6Awakens.Models.Character
+@model MVC6Awakens.ViewModels.Characters.CharacterDetail
 
 @{
     ViewData["Title"] = "Details";
@@ -24,6 +24,18 @@
             </dt>
             <dd>
                 @Html.DisplayFor(model => model.WeaponOfChoice)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.HomePlanetName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.HomePlanetName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SpeciesName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SpeciesName)
             </dd>
         </dl>
     </div>

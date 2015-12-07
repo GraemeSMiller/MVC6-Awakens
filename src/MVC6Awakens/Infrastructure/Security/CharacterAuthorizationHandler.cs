@@ -5,8 +5,6 @@ using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Authorization.Infrastructure;
 
 using MVC6Awakens.Models;
-using MVC6Awakens.ViewModels.Characters;
-
 
 namespace MVC6Awakens.Infrastructure.Security
 {
@@ -16,17 +14,20 @@ namespace MVC6Awakens.Infrastructure.Security
             OperationAuthorizationRequirement requirement,
             Character resource)
         {
-            var admin = context.User.IsInRole("Administrator");
+            var admin = context.User.HasClaim(a => a.Value == "Allowed" && a.Type == "ManageCharacters");
             if (admin)
             {
                 context.Succeed(requirement);
                 return;
             }
-            var userId = context.User.GetUserId();
-            if (userId == resource.CreatorId)
+            if (requirement.Name == CharacterOperations.Manage.Name)
             {
-                context.Succeed(requirement);
-                return;
+                var userId = context.User.GetUserId();
+                if (userId == resource.CreatorId)
+                {
+                    context.Succeed(requirement);
+                    return;
+                }
             }
             context.Fail();
         }

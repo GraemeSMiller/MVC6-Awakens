@@ -17,7 +17,7 @@ namespace MVC6Awakens.Infrastructure.Security
             }
 
             var dateOfBirth = Convert.ToDateTime(context.User.FindFirst(c => c.Type == ClaimTypes.DateOfBirth).Value);
-            int age = DateTime.Today.Year - dateOfBirth.Year;
+            var age = DateTime.Today.Year - dateOfBirth.Year;
             if (dateOfBirth > DateTime.Today.AddYears(-age))
             {
                 age--;

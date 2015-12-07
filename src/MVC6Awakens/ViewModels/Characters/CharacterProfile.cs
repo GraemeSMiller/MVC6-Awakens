@@ -7,6 +7,7 @@ namespace MVC6Awakens.ViewModels.Characters
     {
         protected override void Configure()
         {
+            Mapper.CreateMap<Character, CharacterPublish>().ReverseMap();
             Mapper.CreateMap<Character, CharacterEdit>().ReverseMap();
             Mapper.CreateMap<Character, CharacterCreate>().ReverseMap();
             Mapper.CreateMap<Character, CharacterDetail>();

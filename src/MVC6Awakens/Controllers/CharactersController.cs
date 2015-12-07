@@ -21,7 +21,7 @@ namespace MVC6Awakens.Controllers
 {
     public class CharactersController : Controller
     {
-        private DomainContext context;
+        private readonly DomainContext context;
 
         private readonly IAuthorizationService authorizationService;
 
@@ -34,28 +34,30 @@ namespace MVC6Awakens.Controllers
 
 
         // GET: Characters
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var canManage = await authorizationService.AuthorizeAsync(User, "ManageCharacters");
             // Automapper projection magic
-            var characters = context.Characters.Where(a => a.Visible).ProjectTo<CharacterDetail>().ToList();
+            var characters = canManage ? await context.Characters.ProjectTo<CharacterDetail>().ToArrayAsync() : await context.Characters.Where(a => a.Visible || a.CreatorId == User.GetUserId()).ProjectTo<CharacterDetail>().ToArrayAsync();
             return View(characters);
         }
 
         // GET: Characters/Details/5
-        public IActionResult Details(Guid? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
                 return HttpNotFound();
             }
 
-            var character = context.Characters.Single(m => m.Id == id);
+            var character = await context.Characters.Include(a => a.HomePlanet).Include(a => a.Species).SingleAsync(m => m.Id == id);
             if (character == null)
             {
                 return HttpNotFound();
             }
 
-            return View(character);
+            var characterDetail = Mapper.Map<CharacterDetail>(character);
+            return View(characterDetail);
         }
 
         // GET: Characters/Create
@@ -71,19 +73,12 @@ namespace MVC6Awakens.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CharacterCreate characterCreate)
         {
-            var canCreate = await authorizationService.AuthorizeAsync(
-                HttpContext.User,
-                characterCreate,
-                CharacterOperations.Create);
-            if (!canCreate)
-            {
-                return new ChallengeResult();
-            }
             if (ModelState.IsValid)
             {
                 var character = Mapper.Map<Character>(characterCreate);
+                character.CreatorId = User.GetUserId();
                 context.Characters.Add(character);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             ViewData["HomePlanetId"] = new SelectList(context.Planets, "Id", "Name", characterCreate.HomePlanetId);
@@ -98,15 +93,12 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
 
-            var character = context.Characters.Single(m => m.Id == id);
+            var character = await context.Characters.SingleAsync(m => m.Id == id);
             if (character == null)
             {
                 return HttpNotFound();
             }
-            var canEdit = await authorizationService.AuthorizeAsync(
-    HttpContext.User,
-    character,
-    CharacterOperations.Create);
+            var canEdit = await authorizationService.AuthorizeAsync(HttpContext.User, character, CharacterOperations.Manage);
             if (!canEdit)
             {
                 return new ChallengeResult();
@@ -119,13 +111,20 @@ namespace MVC6Awakens.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(CharacterEdit characterEdit)
+        public async Task<IActionResult> Edit(CharacterEdit characterEdit)
         {
+            var character = await context.Characters.SingleAsync(m => m.Id == characterEdit.Id);
+            var canEdit = await authorizationService.AuthorizeAsync(HttpContext.User, character, CharacterOperations.Manage);
+            if (!canEdit)
+            {
+                return new ChallengeResult();
+            }
+
             if (ModelState.IsValid)
             {
-                var character = Mapper.Map<Character>(characterEdit);
+                Mapper.Map(characterEdit, character);
                 context.Update(character);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             ViewData["HomePlanetId"] = new SelectList(context.Planets, "Id", "Name", characterEdit.HomePlanetId);
@@ -133,15 +132,48 @@ namespace MVC6Awakens.Controllers
             return View(characterEdit);
         }
 
-        [ActionName("Delete")]
-        public IActionResult Delete(Guid? id)
+        [Authorize("ManageCharacters")]
+        public async Task<IActionResult> Publish(Guid? id)
         {
             if (id == null)
             {
                 return HttpNotFound();
             }
 
-            var character = context.Characters.Single(m => m.Id == id);
+            var character = await context.Characters.Include(a => a.HomePlanet).Include(a => a.Species).SingleAsync(m => m.Id == id);
+            if (character == null)
+            {
+                return HttpNotFound();
+            }
+            return View(Mapper.Map<CharacterPublish>(character));
+        }
+        [Authorize("ManageCharacters")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Publish(CharacterPublish characterPublish)
+        {
+            if (ModelState.IsValid)
+            {
+                var character = await context.Characters.SingleAsync(m => m.Id == characterPublish.Id);
+                Mapper.Map(characterPublish, character);
+                context.Update(character);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(characterPublish);
+        }
+
+
+        [Authorize("ManageCharacters")]
+        [ActionName("Delete")]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var character = await context.Characters.SingleAsync(m => m.Id == id);
             if (character == null)
             {
                 return HttpNotFound();
@@ -149,14 +181,14 @@ namespace MVC6Awakens.Controllers
 
             return View(character);
         }
-
+        [Authorize("ManageCharacters")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var character = context.Characters.Single(m => m.Id == id);
+            var character = await context.Characters.Include(a => a.HomePlanet).Include(a => a.Species).SingleAsync(m => m.Id == id);
             context.Characters.Remove(character);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
     }

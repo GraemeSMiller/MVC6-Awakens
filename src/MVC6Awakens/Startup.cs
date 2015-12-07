@@ -87,18 +87,18 @@ namespace MVC6Awakens
         }
 
 
-        public void ConfigureSecurity(IServiceCollection services) { 
-            
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy(
-            //        "ManageStore",
-            //        authBuilder => {
-            //            authBuilder.RequireClaim("ManageStore", "Allowed");
-            //        });
-            //});
+        public void ConfigureSecurity(IServiceCollection services) {
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(
+                    "ManageCharacters",
+                    authBuilder =>
+                    {
+                        authBuilder.RequireClaim("ManageCharacters", "Allowed");
+                    });
+            });
             services.AddInstance<IAuthorizationHandler>(new CharacterAuthorizationHandler());
-            services.AddInstance<IAuthorizationHandler>(new CharacterCreateAuthorizationHandler());
             //services.Configure<AuthorizationOptions>(options =>
             //{
             //    options.AddPolicy("AllowProfileManagement", policy => policy.Requirements.Add(
@@ -113,19 +113,16 @@ namespace MVC6Awakens
         //{
         //    loggerFactory.AddConsole(minLevel: LogLevel.Warning);
 
-        //    // StatusCode pages to gracefully handle status codes 400-599.
-        //    app.UseStatusCodePagesWithRedirects("~/Home/StatusCodePage");
-
-        //    // Display custom error page in production when error occurs
-        //    // During development use the ErrorPage middleware to display error information in the browser
-        //    app.UseDeveloperExceptionPage();
-
-        //    app.UseDatabaseErrorPage();
-
-        //    // Add the runtime information page that can be used by developers
-        //    // to see what packages are used by the application
-        //    // default path is: /runtimeinfo
-        //    app.UseRuntimeInfoPage();
+        //Helps with auto page reloading and intergration with VS
+        //app.UseBrowserLink();
+        //        //Get useful information for exceptions
+        //        app.UseDeveloperExceptionPage();
+        //        //Displays database related error details
+        //        app.UseDatabaseErrorPage();
+        //        // Add the runtime information page that can be used by developers
+        //        // to see what packages are used by the application
+        //        // default path is: /runtimeinfo
+        //        app.UseRuntimeInfoPage();
 
         //    Configure(app);
         //}
@@ -167,8 +164,6 @@ namespace MVC6Awakens
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
             //Alllow hosting static files
             app.UseStaticFiles();
-
-            app.UseCookieAuthentication(options => { options.AutomaticAuthenticate = true; });
             //Enabled Asp.Net Identity
             app.UseIdentity();
 

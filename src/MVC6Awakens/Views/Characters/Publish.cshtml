@@ -1,0 +1,64 @@
+@using System.Threading.Tasks
+@using MVC6Awakens.ViewModels.Characters
+@model CharacterPublish
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Character</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div>
+            <h4>Character</h4>
+            <hr/>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.WeaponOfChoice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.WeaponOfChoice)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HomePlanetName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HomePlanetName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SpeciesName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SpeciesName)
+                </dd>
+            </dl>
+        </div>
+        <input Wrap="true" asp-for="Visible" class="form-control" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
