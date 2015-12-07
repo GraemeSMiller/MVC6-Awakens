@@ -1,8 +1,4 @@
-﻿
-using System.Collections.Generic;
-
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ViewFeatures;
 
@@ -30,8 +26,10 @@ namespace MVC6Awakens.Controllers
         }
         public IActionResult Index()
         {
-            var viewData = new ViewDataDictionary<string>(provider, ActionContext.ModelState);
-            viewData.Model = "Hello from POCO controller!";
+            var viewData = new ViewDataDictionary<string>(provider, ActionContext.ModelState)
+                               {
+                                   Model = "Hello from POCO controller!"
+                               };
             return new ViewResult() { ViewData = viewData };
         }
     }

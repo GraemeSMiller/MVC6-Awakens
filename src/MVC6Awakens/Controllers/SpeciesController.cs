@@ -8,17 +8,17 @@ namespace MVC6Awakens.Controllers
 {
     public class SpeciesController : Controller
     {
-        private DomainContext _context;
+        private readonly DomainContext context;
 
         public SpeciesController(DomainContext context)
         {
-            _context = context;    
+            this.context = context;    
         }
 
         // GET: Species
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Species.ToListAsync());
+            return View(await context.Species.ToListAsync());
         }
 
         // GET: Species/Details/5
@@ -29,7 +29,7 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
 
-            Species species = await _context.Species.SingleAsync(m => m.Id == id);
+            Species species = await context.Species.SingleAsync(m => m.Id == id);
             if (species == null)
             {
                 return HttpNotFound();
@@ -52,8 +52,8 @@ namespace MVC6Awakens.Controllers
             if (ModelState.IsValid)
             {
                 species.Id = Guid.NewGuid();
-                _context.Species.Add(species);
-                await _context.SaveChangesAsync();
+                context.Species.Add(species);
+                await context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(species);
@@ -67,7 +67,7 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
 
-            Species species = await _context.Species.SingleAsync(m => m.Id == id);
+            Species species = await context.Species.SingleAsync(m => m.Id == id);
             if (species == null)
             {
                 return HttpNotFound();
@@ -82,8 +82,8 @@ namespace MVC6Awakens.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Update(species);
-                await _context.SaveChangesAsync();
+                context.Update(species);
+                await context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(species);
@@ -98,7 +98,7 @@ namespace MVC6Awakens.Controllers
                 return HttpNotFound();
             }
 
-            Species species = await _context.Species.SingleAsync(m => m.Id == id);
+            Species species = await context.Species.SingleAsync(m => m.Id == id);
             if (species == null)
             {
                 return HttpNotFound();
@@ -112,9 +112,9 @@ namespace MVC6Awakens.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            Species species = await _context.Species.SingleAsync(m => m.Id == id);
-            _context.Species.Remove(species);
-            await _context.SaveChangesAsync();
+            Species species = await context.Species.SingleAsync(m => m.Id == id);
+            context.Species.Remove(species);
+            await context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
     }

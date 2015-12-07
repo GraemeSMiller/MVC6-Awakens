@@ -72,21 +72,15 @@ namespace MVC6Awakens
             services.AddCors();
 
 
-
             //services.AddCors();
             services.AddMvc().AddMvcOptions(
                 options =>
                     {
                         options.Filters.Add(new AuthorizeFilter(defaultPolicy));
-                        options.ModelValidatorProviders.Add(services.BuildServiceProvider().GetRequiredService<IModelValidatorProvider>());
                         options.ModelMetadataDetailsProviders.Add(new HumanizerMetadataProvider());
-                    });
-
-
-            services.AddTransient<IValidator<CharacterCreate>, CharacterCreateValidator>();
+                    }).AddFluentValidation();
 
             // Add application services.
-            services.AddTransient<IModelValidatorProvider, FluentValidationModelValidatorProvider>();
             services.AddTransient<IValidatorFactory, MvcValidatorFactory>();
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
@@ -170,7 +164,6 @@ namespace MVC6Awakens
                 }
                 catch { }
             }
-
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
             //Alllow hosting static files
             app.UseStaticFiles();
@@ -188,7 +181,6 @@ namespace MVC6Awakens
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            app.UseBrowserLink();
         }
 
         // Entry point for the application.
