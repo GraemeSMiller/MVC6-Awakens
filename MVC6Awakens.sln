@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6BCD763-252A-4DBD-848D-20F2BA2C2DF0}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MVC6Awakens", "src\MVC6Awakens\MVC6Awakens.xproj", "{63BAF816-5A6B-4680-9C64-7784BF193BC6}"
