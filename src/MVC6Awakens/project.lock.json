@@ -2,7 +2,25 @@
   "locked": false,
   "version": 2,
   "targets": {
-    "DNX,Version=v4.5.1": {
+    "DNX,Version=v4.6.1": {
+      "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/AspNet.Mvc.TypedRouting.dll": {}
+        },
+        "runtime": {
+          "lib/net451/AspNet.Mvc.TypedRouting.dll": {}
+        }
+      },
       "AutoMapper/4.1.1": {
         "type": "package",
         "compile": {
@@ -2202,11 +2220,17 @@
       },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib",
+          "System.Numerics"
+        ],
         "compile": {
-          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
+          "ref/net46/_._": {},
+          "ref/net46/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
+          "lib/net46/_._": {},
+          "lib/net46/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection/4.0.0": {
@@ -2335,6 +2359,18 @@
       }
     },
     "DNXCore,Version=v5.0": {
+      "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+        },
+        "compile": {
+          "lib/dotnet5.4/AspNet.Mvc.TypedRouting.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/AspNet.Mvc.TypedRouting.dll": {}
+        }
+      },
       "AutoMapper/4.1.1": {
         "type": "package",
         "dependencies": {
@@ -5339,7 +5375,25 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/win7-x86": {
+    "DNX,Version=v4.6.1/win7-x86": {
+      "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/AspNet.Mvc.TypedRouting.dll": {}
+        },
+        "runtime": {
+          "lib/net451/AspNet.Mvc.TypedRouting.dll": {}
+        }
+      },
       "AutoMapper/4.1.1": {
         "type": "package",
         "compile": {
@@ -7542,11 +7596,17 @@
       },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib",
+          "System.Numerics"
+        ],
         "compile": {
-          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
+          "ref/net46/_._": {},
+          "ref/net46/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
+          "lib/net46/_._": {},
+          "lib/net46/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection/4.0.0": {
@@ -7674,7 +7734,25 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/win7-x64": {
+    "DNX,Version=v4.6.1/win7-x64": {
+      "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/AspNet.Mvc.TypedRouting.dll": {}
+        },
+        "runtime": {
+          "lib/net451/AspNet.Mvc.TypedRouting.dll": {}
+        }
+      },
       "AutoMapper/4.1.1": {
         "type": "package",
         "compile": {
@@ -9877,11 +9955,17 @@
       },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib",
+          "System.Numerics"
+        ],
         "compile": {
-          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
+          "ref/net46/_._": {},
+          "ref/net46/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
+          "lib/net46/_._": {},
+          "lib/net46/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection/4.0.0": {
@@ -10010,6 +10094,18 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
+      "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+        },
+        "compile": {
+          "lib/dotnet5.4/AspNet.Mvc.TypedRouting.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/AspNet.Mvc.TypedRouting.dll": {}
+        }
+      },
       "AutoMapper/4.1.1": {
         "type": "package",
         "dependencies": {
@@ -13507,6 +13603,18 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
+      "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+        },
+        "compile": {
+          "lib/dotnet5.4/AspNet.Mvc.TypedRouting.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/AspNet.Mvc.TypedRouting.dll": {}
+        }
+      },
       "AutoMapper/4.1.1": {
         "type": "package",
         "dependencies": {
@@ -17005,6 +17113,19 @@
     }
   },
   "libraries": {
+    "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
+      "type": "package",
+      "sha512": "50f5MmCsYX2Vw/122jXLcWZnvMuTdErQgOSKHo0BYaRd69ZDZfFlVWIiu6RTebmT6dgxaMYaPjZY5DiRcOym0w==",
+      "files": [
+        "AspNet.Mvc.TypedRouting.1.0.2-rc1-final.nupkg",
+        "AspNet.Mvc.TypedRouting.1.0.2-rc1-final.nupkg.sha512",
+        "AspNet.Mvc.TypedRouting.nuspec",
+        "lib/dotnet5.4/AspNet.Mvc.TypedRouting.dll",
+        "lib/dotnet5.4/AspNet.Mvc.TypedRouting.xml",
+        "lib/net451/AspNet.Mvc.TypedRouting.dll",
+        "lib/net451/AspNet.Mvc.TypedRouting.xml"
+      ]
+    },
     "AutoMapper/4.1.1": {
       "type": "package",
       "sha512": "wTNIFaF21i0heEEOMOLn4Ki991I+b6Ls+tiwTvmzVhkLo5PmSJcNLuf2eGJEtUnQ3UDBTAAdZEaXAgbTqOe2pg==",
@@ -18897,7 +19018,7 @@
     "runtime.win7.System.Diagnostics.Process/4.1.0-beta-23409": {
       "type": "package",
       "serviceable": true,
-      "sha512": "WQ9fNSFkKk/aaKiVS9YA0b1W6CpXt60zvUY2HdmY5N9Js6h/mxhXavxCowYR9qVW95gqA42zcxb3FElWsCqqEw==",
+      "sha512": "hXKdXyMDMGkSwaOQOgNlQsJuROb0rs+B/nGdvEDQZLZj0J9mH2jZ1/sXOB6nfgm/quboh0/EhV8oqC/1pzmBog==",
       "files": [
         "lib/win8/_._",
         "lib/wp8/_._",
@@ -21405,7 +21526,7 @@
     "System.Reflection.TypeExtensions/4.0.1-beta-23409": {
       "type": "package",
       "serviceable": true,
-      "sha512": "n8m144jjCwhN/qtLih35a2sO33fLWm1U3eg51KxqAcAjJcw0nq1zWie8FZognBTPv7BXdW/G8xGbbvDGFoJwZA==",
+      "sha512": "Q3FiCsJ/4s2nuyhOHAFhc0Te10LzPjv6QzVcywA3oWI1msfDg583RIXQ9YifDfOuig+wg+SX0p133qV71HVfyw==",
       "files": [
         "lib/DNXCore50/de/System.Reflection.TypeExtensions.xml",
         "lib/DNXCore50/es/System.Reflection.TypeExtensions.xml",
@@ -22021,7 +22142,7 @@
     "System.Runtime.Serialization.Primitives/4.0.11-beta-23409": {
       "type": "package",
       "serviceable": true,
-      "sha512": "AQywM01eG8EgYde/RRrJDVdHmOOI3KkgK9GEjLQqvTLsrWsamNHN/j7Pxwa3XX7klSSrfDpvTNfUl40855idVg==",
+      "sha512": "0JLo0iSVWtuVwNo51/ArH+WtTTriWs80roj32aBMDiFBtSMoNbBDQ5BxzqbbDjLw17mtLFHMBqIjeUVsGeRMlQ==",
       "files": [
         "lib/dotnet/de/System.Runtime.Serialization.Primitives.xml",
         "lib/dotnet/es/System.Runtime.Serialization.Primitives.xml",
@@ -23110,9 +23231,10 @@
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
       "Humanizer >= 2.0.0-beta0001",
       "FluentValidation >= 5.6.2",
-      "Microsoft.Net.Http.Server >= 1.0.0-beta8"
+      "Microsoft.Net.Http.Server >= 1.0.0-beta8",
+      "AspNet.Mvc.TypedRouting >= 1.0.2-rc1-final"
     ],
-    "DNX,Version=v4.5.1": [],
+    "DNX,Version=v4.6.1": [],
     "DNXCore,Version=v5.0": []
   }
 }

@@ -88,7 +88,8 @@ namespace MVC6Awakens
         }
 
 
-        public void ConfigureSecurity(IServiceCollection services) {
+        public void ConfigureSecurity(IServiceCollection services)
+        {
 
             services.AddAuthorization(options =>
             {
@@ -162,9 +163,12 @@ namespace MVC6Awakens
                 }
                 catch { }
             }
-            app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
+
+            //app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
+
             //Alllow hosting static files
             app.UseStaticFiles();
+
             //Enabled Asp.Net Identity
             app.UseIdentity();
 
@@ -173,9 +177,11 @@ namespace MVC6Awakens
             //Setup routing
             app.UseMvc(routes =>
             {
+
+                routes.UseTypedRouting();
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+      name: "default",
+      template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
 

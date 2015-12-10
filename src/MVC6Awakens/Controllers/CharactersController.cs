@@ -80,6 +80,9 @@ namespace MVC6Awakens.Controllers
                 context.Characters.Add(character);
                 await context.SaveChangesAsync();
                 return RedirectToAction("Index");
+                //DEATH TO MAGIC STRINGS
+                //https://github.com/ivaylokenov/AspNet.Mvc.TypedRouting
+                //return this.RedirectToAction(c => c.Index());
             }
             ViewData["HomePlanetId"] = new SelectList(context.Planets, "Id", "Name", characterCreate.HomePlanetId);
             ViewData["SpeciesId"] = new SelectList(context.Species, "Id", "Name", characterCreate.SpeciesId);
