@@ -1,13 +1,10 @@
 ﻿using FluentValidation;
-using FluentValidation.Attributes;
 
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Cors.Infrastructure;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Mvc.Filters;
-using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using MVC6Awakens.Infrastructure;
 using MVC6Awakens.Infrastructure.AutoMapper;
 using MVC6Awakens.Infrastructure.FluentValidationBETA;
+using MVC6Awakens.Infrastructure.Middleware;
 using MVC6Awakens.Infrastructure.ModelBinders;
 using MVC6Awakens.Infrastructure.Security;
 using MVC6Awakens.Models;
@@ -133,6 +131,7 @@ namespace MVC6Awakens
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug(LogLevel.Information);
+            app.UseMiddleware<FeelTheForceMiddleware>();
 
             if (env.IsDevelopment())
             {
@@ -184,6 +183,7 @@ namespace MVC6Awakens
       template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
 
         // Entry point for the application.
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
