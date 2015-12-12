@@ -131,8 +131,8 @@ namespace MVC6Awakens
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug(LogLevel.Information);
-            app.UseMiddleware<FeelTheForceMiddleware>();
-
+            //app.UseMiddleware<FeelTheForceMiddleware>();
+            app.UseFeelTheForce();
             if (env.IsDevelopment())
             {
                 //Helps with auto page reloading and intergration with VS
