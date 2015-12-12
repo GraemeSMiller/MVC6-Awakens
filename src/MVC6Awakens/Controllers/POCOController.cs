@@ -18,12 +18,11 @@ namespace MVC6Awakens.Controllers
             this.provider = provider;
         }
 
-
-        // GET: /<controller>/
         public IActionResult Content()
         {
             return new ContentResult() { Content = "Hello from POCO controller!" };
         }
+
         public IActionResult Index()
         {
             var viewData = new ViewDataDictionary<string>(provider, ActionContext.ModelState)

@@ -131,6 +131,7 @@ namespace MVC6Awakens
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug(LogLevel.Information);
+            app.UseIISPlatformHandler();
             //app.UseMiddleware<FeelTheForceMiddleware>();
             app.UseFeelTheForce();
             if (env.IsDevelopment())
