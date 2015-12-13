@@ -15,7 +15,7 @@ namespace MVC6Awakens.Infrastructure
     ///  MVC Feature Folders explained: http://timgthomas.com/2013/10/feature-folders-in-asp-net-mvc/
     ///  Add this code snippet to your services configuration in StartUp.cs:
     ///  <c>
-    ///    services.Configure&lt;RazorViewEngineOptions>(o =>
+    ///    services.Configure<RazorViewEngineOptions>(o =>
     ///    {
     ///      o.ViewLocationExpanders.Add(new FeatureFolderLocationRemapper());
     ///    });

@@ -10,7 +10,8 @@ namespace MVC6Awakens.Infrastructure
         {
             // I added an additional "App" folder in my MVC project to separate the root configuration 
             // and package files from my application code. 
-            return viewLocations.Select(f => f.Replace("/Views/", "/App/Features/"));
+            var newLocations = new List<string>{ "/App/Features/{1}/{0}.cshtml" }.Concat(viewLocations); ;
+            return newLocations;
         }
     }
 }

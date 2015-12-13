@@ -5,6 +5,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Mvc.Filters;
+using Microsoft.AspNet.Mvc.Razor;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -54,6 +55,12 @@ namespace MVC6Awakens
             {
                 services.AddGlimpse();
             }
+
+            var useFeatureFolders = Configuration.Get<bool>("FeatureFolders:Enabled");
+            services.Configure<RazorViewEngineOptions>(o =>
+             {
+                 o.ViewLocationExpanders.Add(new FeatureFolderLocationRemapper());
+             });
 
             // Add framework services.                                                     
             var connectionString = Configuration["Data:DefaultConnection:ConnectionString"];
