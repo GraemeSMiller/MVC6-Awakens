@@ -12,6 +12,7 @@ namespace MVC6Awakens.Infrastructure.TagHelpers
     /// </summary>
     [HtmlTargetElement("input", Attributes = nameof(Wrap) + ", asp-for")]
     [HtmlTargetElement("select", Attributes = nameof(Wrap) + ", asp-for")]
+    [HtmlTargetElement("textarea", Attributes = nameof(Wrap) + ", asp-for")]
     public class FormGroupWrapperTagHelper : TagHelper
     {
         //Obtain an HTML genertor so we can use it to generate labels, validation
