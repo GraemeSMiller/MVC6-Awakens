@@ -49,7 +49,12 @@ namespace MVC6Awakens
         public void ConfigureServices(IServiceCollection services)
         {
             ConfigureSecurity(services);
-            services.AddGlimpse();
+            var useGlimpse = Configuration.Get<bool>("Glimpse:Enabled");
+            if (useGlimpse)
+            {
+                services.AddGlimpse();
+            }
+
             // Add framework services.                                                     
             var connectionString = Configuration["Data:DefaultConnection:ConnectionString"];
             services.AddEntityFramework()
