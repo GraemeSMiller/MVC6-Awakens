@@ -45,14 +45,8 @@
                 @Html.DisplayFor(modelItem => item.SpeciesName)
             </td>
             <td>
-                @Component.Invoke("CharacterDetailRenamed", item.Id)
+                @await Component.InvokeAsync("CharacterLinkGenerator", item.Id)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Publish" asp-route-id="@item.Id" Policy="ManageCharacters">Publish</a>| <a asp-action="Delete" asp-route-id="@item.Id" Policy="ManageCharacters">Delete</a>
-            </td>
-
         </tr>
     }
 </table>

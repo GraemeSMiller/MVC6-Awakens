@@ -1,0 +1,4 @@
+﻿@model MVC6Awakens.Views.Shared.Components.CharacterDetailRenamed.CharacterLinkDetail
+<a asp-action="Edit" asp-route-id="@Model.Id" Visble="Model.Edit">Edit</a> |
+<a asp-action="Details" asp-route-id="@Model.Id">Details</a> |
+<a asp-action="Publish" asp-route-id="@Model.Id" Policy="ManageCharacters">Publish</a>| <a asp-action="Delete" asp-route-id="@Model.Id" Policy="ManageCharacters">Delete</a>

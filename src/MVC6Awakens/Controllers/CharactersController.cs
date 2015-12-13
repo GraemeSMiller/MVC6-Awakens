@@ -158,7 +158,7 @@ namespace MVC6Awakens.Controllers
             if (ModelState.IsValid)
             {
                 var character = await context.Characters.SingleAsync(m => m.Id == characterPublish.Id);
-                Mapper.Map(characterPublish, character);
+                character.Visible = characterPublish.Visible;
                 context.Update(character);
                 await context.SaveChangesAsync();
                 return RedirectToAction("Index");

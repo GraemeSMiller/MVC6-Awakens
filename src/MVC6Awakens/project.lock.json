@@ -25130,7 +25130,8 @@
       "FluentValidation >= 5.6.2",
       "Microsoft.Net.Http.Server >= 1.0.0-beta8",
       "AspNet.Mvc.TypedRouting >= 1.0.2-rc1-final",
-      "Glimpse >= 2.0.0-beta1"
+      "Glimpse >= 2.0.0-beta1",
+      "Microsoft.AspNet.Authorization >= 1.0.0-rc1-final"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
