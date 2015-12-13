@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Mvc;
+using MVC6Awakens.Infrastructure;
 
 namespace MVC6Awakens.Controllers
 {
@@ -8,7 +9,7 @@ namespace MVC6Awakens.Controllers
         {
             return View();
         }
-
+        [ServiceFilter(typeof(LogFilter))]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

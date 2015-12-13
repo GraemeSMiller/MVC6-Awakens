@@ -75,7 +75,7 @@ namespace MVC6Awakens
                 .Build();
             services.AddCors();
 
-
+            services.AddSingleton<LogFilter>();
             //services.AddCors();
             services.AddMvc().AddMvcOptions(
                 options =>
@@ -192,7 +192,7 @@ namespace MVC6Awakens
                 routes.UseTypedRouting();
                 routes.MapRoute(
       name: "default",
-      template: "{controller=Home}/{action=Index}/{id?}");
+      template: "{controller=Home}/{action=About}/{id?}");
             });
         }
 
