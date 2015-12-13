@@ -2,7 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
-    "DNX,Version=v4.6.1": {
+    "DNX,Version=v4.5.1": {
       "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -2439,17 +2439,11 @@
       },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib",
-          "System.Numerics"
-        ],
         "compile": {
-          "ref/net46/_._": {},
-          "ref/net46/System.Numerics.Vectors.dll": {}
+          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/net46/_._": {},
-          "lib/net46/System.Numerics.Vectors.dll": {}
+          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection/4.0.0": {
@@ -5857,7 +5851,7 @@
         }
       }
     },
-    "DNX,Version=v4.6.1/win7-x86": {
+    "DNX,Version=v4.5.1/win7-x86": {
       "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -8297,17 +8291,11 @@
       },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib",
-          "System.Numerics"
-        ],
         "compile": {
-          "ref/net46/_._": {},
-          "ref/net46/System.Numerics.Vectors.dll": {}
+          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/net46/_._": {},
-          "lib/net46/System.Numerics.Vectors.dll": {}
+          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection/4.0.0": {
@@ -8444,7 +8432,7 @@
         }
       }
     },
-    "DNX,Version=v4.6.1/win7-x64": {
+    "DNX,Version=v4.5.1/win7-x64": {
       "AspNet.Mvc.TypedRouting/1.0.2-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -10884,17 +10872,11 @@
       },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib",
-          "System.Numerics"
-        ],
         "compile": {
-          "ref/net46/_._": {},
-          "ref/net46/System.Numerics.Vectors.dll": {}
+          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/net46/_._": {},
-          "lib/net46/System.Numerics.Vectors.dll": {}
+          "lib/portable-net45+win8/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection/4.0.0": {
@@ -25150,7 +25132,7 @@
       "AspNet.Mvc.TypedRouting >= 1.0.2-rc1-final",
       "Glimpse >= 2.0.0-beta1"
     ],
-    "DNX,Version=v4.6.1": [],
+    "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
   }
 }
