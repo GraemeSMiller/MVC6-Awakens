@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-
+using Glimpse;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
@@ -49,6 +49,7 @@ namespace MVC6Awakens
         public void ConfigureServices(IServiceCollection services)
         {
             ConfigureSecurity(services);
+            services.AddGlimpse();
             // Add framework services.                                                     
             var connectionString = Configuration["Data:DefaultConnection:ConnectionString"];
             services.AddEntityFramework()
@@ -131,7 +132,7 @@ namespace MVC6Awakens
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug(LogLevel.Information);
-            app.UseIISPlatformHandler();
+            app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
             //app.UseMiddleware<FeelTheForceMiddleware>();
             app.UseFeelTheForce();
             if (env.IsDevelopment())
@@ -164,7 +165,12 @@ namespace MVC6Awakens
                 catch { }
             }
 
-            //app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
+
+            var useGlimpse = Configuration.Get<bool>("Glimpse:Enabled");
+            if (useGlimpse)
+            {
+                app.UseGlimpse();
+            }
 
             //Alllow hosting static files
             app.UseStaticFiles();
